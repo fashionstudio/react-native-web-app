@@ -24,7 +24,17 @@
     "typescript": "^4.4.2"
   },
   "dependencies": {
+    "expo": "^42.0.3",
+    "expo-constants": "^11.0.1",
+    "expo-font": "^9.2.1",
+    "expo-notifications": "^0.12.3",
+    "expo-permissions": "^12.1.1",
+    "expo-progress": "^0.0.2",
+    "expo-status-bar": "^1.0.4",
+    "expo-tracking-transparency": "^1.1.2",
     "react": "^17.0.2",
-    "react-native": "^0.65.1"
+    "react-native": "^0.65.1",
+    "react-native-offline": "^5.8.0",
+    "react-native-webview": "^11.13.0"
   }
 }
