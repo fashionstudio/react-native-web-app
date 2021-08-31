@@ -4,12 +4,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc --watch"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/react": "^17.0.19",
+    "@types/react-native": "^0.64.13",
     "typescript": "^4.4.2"
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-native": "^0.65.1"
   }
 }
