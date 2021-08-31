@@ -1,5 +1,6 @@
 import React from "react";
-import { View, Text } from "react-native"
+import { View, Text } from "react-native";
+import { sum } from "./helpers/sum";
 
 interface Props {
 	/** The name of the app */
@@ -7,12 +8,15 @@ interface Props {
 }
 
 /** Main App constructor */
-const App: React.FC<Props> = ({ name }) => {
-	return (
+const App: React.FC<Props> = ({ name }) =>
+	(
 		<View>
-			<Text>Hello {name}</Text>
+			<Text>
+				Hello
+				{name}
+				{sum(1, 2)}
+			</Text>
 		</View>
 	);
-}
 
 export default App;
