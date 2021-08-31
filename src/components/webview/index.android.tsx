@@ -96,7 +96,7 @@ export default class CustomWebView extends React.Component<CustomWebViewProps, S
 
 	render() {
 		const { scrollViewHeight, isPullToRefreshEnabled, loading } = this.state;
-
+		const { webviewUrl, customJSInjection } = this.props;
 		return (
 			<View style={{ flex: 1 }}>
 				{loading && <Loading />}
@@ -118,7 +118,7 @@ export default class CustomWebView extends React.Component<CustomWebViewProps, S
 					)}
 				>
 					<RNWebView
-						source={{ uri: this.props.webviewUrl }}
+						source={{ uri: webviewUrl }}
 						ref={this.webView}
 						style={WEBVIEW(scrollViewHeight)}
 						onMessage={this.onWebViewMessage}
@@ -126,7 +126,7 @@ export default class CustomWebView extends React.Component<CustomWebViewProps, S
 						onLoadStart={() => { this.setState({ loading: true }); }}
 						onLoadEnd={() =>
 							this.setState({ loading: false })}
-						{...sharedWebViewProps(this.props.customJSInjection)}
+						{...sharedWebViewProps(customJSInjection)}
 					/>
 				</ScrollView>
 			</View>
