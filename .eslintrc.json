@@ -21,6 +21,18 @@
 		"react-native",
 		"@typescript-eslint"
 	],
+	"settings": {
+		"import/resolver": {
+			"node": {
+				"extensions": [
+					".js",
+					".jsx",
+					".ts",
+					".tsx"
+				]
+			}
+		}
+	},
 	"rules": {
 		"eqeqeq": 2,
 		"react/no-unescaped-entities": 0,
