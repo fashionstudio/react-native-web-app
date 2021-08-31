@@ -4,7 +4,7 @@
 
 Instead of repeating over and over the same process of creating an app using a web view, this library does everything for you. Only import it and pass in options.
 
-This is made for Fashion Studio app.
+This is made for Fashion Studio's apps.
 
 It supports:
 - Push Notifications
@@ -20,4 +20,6 @@ It supports:
 
 ## Installation
 
-> The installation instructions are low priority in the readme and should come at the bottom. The first part answers all their objections and now that they want to use it, show them how.
+This library being private, you can't download it from `npm`.
+
+`yarn add git+ssh://git@github.com:<user>/<repo>.git`
