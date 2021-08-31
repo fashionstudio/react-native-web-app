@@ -1,63 +1,20 @@
-import React, { useEffect, useState } from "react";
-import { useIsConnected } from "react-native-offline";
+import React from "react";
+import { StatusBar } from "react-native";
+import { SafeAreaView } from "react-navigation";
+import { NetworkProvider } from "react-native-offline";
 
-import { Loading } from "./components/Loading";
-import NoInternet from "./components/NoInternet";
-import CustomWebView from "./components/webview/index.android";
-
-interface Props {
-	/** Website url */
-	siteUrl: string;
-
-	/** Api url to save the push notification token */
-	apiUrl?: string;
-
-	/** Custom fonts name */
-	fontName?: string;
-
-	/** Custom injected javascript when the site is loading */
-	customJSInjection?: string;
-}
+import { IAppProps } from "./types";
+import { Main } from "./Main";
 
 /** Main App constructor */
-export const App: React.FC<Props> = ({
-	siteUrl,
-	apiUrl = "",
-	fontName = "custom",
-	customJSInjection = "",
-}) => {
-	const [loading, setLoading] = useState(true);
-	const [webviewUrl, setWebviewUrl] = useState<string>(siteUrl);
-	const [applePayEnabled, setApplePayEnabled] = useState<boolean>(false);
-	const isConnected = useIsConnected();
-
-	const reloadWebView = (enableApplePay: boolean) => {
-		setLoading(true);
-		setApplePayEnabled(enableApplePay);
-		setTimeout(() =>
-			setLoading(false), 250);
-	};
-
-	useEffect(() => {
-		setLoading(false);
-	}, []);
-
-	if (loading)
-		return <Loading />;
-
-	if (!isConnected)
-		return <NoInternet fontFamily={fontName} />;
-
-	return (
-		<CustomWebView
-			webviewUrl={webviewUrl}
-			apiUrl={apiUrl}
-			setWebviewUrl={setWebviewUrl}
-			reloadWebView={reloadWebView}
-			applePayEnabled={applePayEnabled}
-			customJSInjection={customJSInjection}
-		/>
+export const App: React.FC<IAppProps> = (props) =>
+	(
+		<NetworkProvider>
+			<SafeAreaView style={{ flex: 1 }} forceInset={{ bottom: "never" }}>
+				<StatusBar barStyle="dark-content" backgroundColor="white" />
+				<Main {...props} />
+			</SafeAreaView>
+		</NetworkProvider>
 	);
-};
 
 export default App;
