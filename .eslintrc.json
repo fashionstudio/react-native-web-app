@@ -1,0 +1,124 @@
+{
+	"env": {
+		"browser": true,
+		"es2021": true,
+		"react-native/react-native": true
+	},
+	"extends": [
+		"plugin:react/recommended",
+		"airbnb"
+	],
+	"parser": "@typescript-eslint/parser",
+	"parserOptions": {
+		"ecmaFeatures": {
+			"jsx": true
+		},
+		"ecmaVersion": 12,
+		"sourceType": "module"
+	},
+	"plugins": [
+		"react",
+		"react-native",
+		"@typescript-eslint"
+	],
+	"rules": {
+		"eqeqeq": 2,
+		"react/no-unescaped-entities": 0,
+		"react/jsx-one-expression-per-line": [
+			2,
+			{
+				"allow": "single-child"
+			}
+		],
+		"import/prefer-default-export": 0,
+		"react/jsx-props-no-spreading": 0,
+		"react/jsx-indent": 0,
+		"react/prop-types": 0,
+		"react/jsx-indent-props": [
+			2,
+			"tab"
+		],
+		"import/extensions": 0,
+		"import/export": 0,
+		"no-mixed-spaces-and-tabs": 0,
+		"no-unused-vars": 0,
+		"@typescript-eslint/no-unused-vars": 1,
+		"react/jsx-filename-extension": [
+			1,
+			{
+				"extensions": [
+					".tsx",
+					".ts",
+					".js",
+					".jsx"
+				]
+			}
+		],
+		"arrow-body-style": [
+			"error",
+			"as-needed"
+		],
+		"quotes": [
+			"error",
+			"double"
+		],
+		"no-console": 1,
+		"no-continue": 0,
+		"no-param-reassign": 0,
+		"max-classes-per-file": 0,
+		"max-len": 0,
+		"implicit-arrow-linebreak": [
+			"error",
+			"below"
+		],
+		"no-use-before-define": "off",
+		"@typescript-eslint/no-use-before-define": [
+			"error"
+		],
+		"linebreak-style": 0,
+		"indent": [
+			2,
+			"tab",
+			{
+				"SwitchCase": 1,
+				"VariableDeclarator": 1
+			}
+		],
+		"no-tabs": 0,
+		"no-shadow": "off",
+		"@typescript-eslint/no-shadow": "off",
+		"import/no-extraneous-dependencies": [
+			"error",
+			{
+				"devDependencies": [
+					"**/*.test.ts",
+					"**/*.test.tsx",
+					"**/*.spec.tsx",
+					"**/*.spec.tsx",
+					"**/*.stories.ts",
+					"**/*.stories.tsx"
+				],
+				"bundledDependencies": true
+			}
+		],
+		"curly": [
+			"error",
+			"multi"
+		],
+		"nonblock-statement-body-position": [
+			"error",
+			"below"
+		],
+		"no-plusplus": [
+			"error",
+			{
+				"allowForLoopAfterthoughts": true
+			}
+		],
+		"no-multi-assign": 0,
+		"no-nested-ternary": 0,
+		"consistent-return": 0,
+		"jsx-a11y/media-has-caption": 0,
+		"no-underscore-dangle": 1
+	}
+}
