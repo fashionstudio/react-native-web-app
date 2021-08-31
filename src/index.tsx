@@ -7,7 +7,7 @@ import { IAppProps } from "./types";
 import { Main } from "./Main";
 
 /** Main App constructor */
-export const App: React.FC<IAppProps> = (props) =>
+export const AppStructure: React.FC<IAppProps> = (props) =>
 	(
 		<NetworkProvider>
 			<SafeAreaView style={{ flex: 1 }} forceInset={{ bottom: "never" }}>
@@ -17,4 +17,4 @@ export const App: React.FC<IAppProps> = (props) =>
 		</NetworkProvider>
 	);
 
-export default App;
+export default AppStructure;
