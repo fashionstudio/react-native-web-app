@@ -20,6 +20,16 @@ It supports:
 
 ## Installation
 
-This library being private, you can't download it from `npm`.
+This library being private, you can't download it from `npm`'s servers.
 
-`yarn add git+ssh://git@github.com:<user>/<repo>.git`
+`yarn add "git+https://<personal-token>:x-oauth-basic@github.com/fashionstudio/app-structure.git"`
+or
+`npm i "git+https://<personal-token>:x-oauth-basic@github.com/fashionstudio/app-structure.git"`
+
+To get the `<personal-token>`, follow those instructions: [creating a personal token][1].
+Or read [this stackoverflow post][2]
+
+
+[1]: https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token
+
+[2]: https://stackoverflow.com/a/28729646/12624093
