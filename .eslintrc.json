@@ -36,6 +36,7 @@
 	"rules": {
 		"eqeqeq": 2,
 		"react/no-unescaped-entities": 0,
+		"react/require-default-props": 0,
 		"react/jsx-one-expression-per-line": [
 			2,
 			{
