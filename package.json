@@ -35,6 +35,7 @@
     "typescript": "^4.4.2"
   },
   "dependencies": {
+    "@react-navigation/core": "^6.0.1",
     "expo": "^42.0.3",
     "expo-constants": "^11.0.1",
     "expo-font": "^9.2.1",
@@ -44,8 +45,12 @@
     "expo-status-bar": "^1.0.4",
     "expo-tracking-transparency": "^1.1.2",
     "react": "^17.0.2",
-    "react-native": "^0.65.1",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-42.0.0.tar.gz",
+    "react-native-gesture-handler": "^1.10.3",
     "react-native-offline": "^5.8.0",
+    "react-native-reanimated": "^2.2.0",
+    "react-native-redash": "^16.2.1",
+    "react-native-svg": "^12.1.1",
     "react-native-webview": "^11.13.0",
     "react-navigation": "^4.4.4"
   }
