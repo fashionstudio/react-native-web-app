@@ -1,14 +1,25 @@
 {
   "name": "app-structure",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Easily create apps using web views",
+  "author": "Johann Buscail <johann@buscail.ey> (https://github.com/johannb75)",
+  "license": "MIT",
+  "main": "dist/AppStructure.js",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsc --watch"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fashionstudio/app-structure.git"
+  },
+  "bugs": {
+    "url": "https://github.com/fashionstudio/app-structure/issues"
+  },
+  "homepage": "https://github.com/fashionstudio/app-structure#readme",
   "keywords": [],
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
     "@types/react": "^17.0.19",
     "@types/react-native": "^0.64.13",
