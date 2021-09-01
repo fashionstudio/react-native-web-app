@@ -1,11 +1,6 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-const react_1 = __importDefault(require("react"));
-const react_native_1 = require("react-native");
-const styles = react_native_1.StyleSheet.create({
+import React from "react";
+import { StyleSheet, Text, SafeAreaView, TouchableOpacity, } from "react-native";
+const styles = StyleSheet.create({
     button: {
         marginTop: 25,
         borderRadius: 50,
@@ -19,14 +14,14 @@ const styles = react_native_1.StyleSheet.create({
         textAlign: "center",
     },
 });
-const NoInternet = ({ fontFamily }) => (<react_native_1.SafeAreaView style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-			<react_native_1.Text style={{ fontFamily, fontSize: 18 }}>
+const NoInternet = ({ fontFamily }) => (<SafeAreaView style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+			<Text style={{ fontFamily, fontSize: 18 }}>
 				Вы не подключены к Интернету.
-			</react_native_1.Text>
-			<react_native_1.TouchableOpacity style={styles.button}>
-				<react_native_1.Text style={[{ ...styles.btnText }, { fontFamily }]}>
+			</Text>
+			<TouchableOpacity style={styles.button}>
+				<Text style={[{ ...styles.btnText }, { fontFamily }]}>
 					Обновить
-				</react_native_1.Text>
-			</react_native_1.TouchableOpacity>
-		</react_native_1.SafeAreaView>);
-exports.default = NoInternet;
+				</Text>
+			</TouchableOpacity>
+		</SafeAreaView>);
+export default NoInternet;

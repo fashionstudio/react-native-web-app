@@ -1,23 +1,20 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.globalWebViewMessageHandler = exports.sharedWebViewProps = void 0;
-const constants_1 = require("../../helpers/constants");
-const events_1 = require("../../helpers/events");
-const types_1 = require("../../helpers/types");
+import { INJECTED_JS } from "../../helpers/constants";
+import { handleRegisterPush } from "../../helpers/events";
+import { EVENTS_FROM_WEB } from "../../helpers/types";
 /** Same props used for the android and ios webview */
-exports.sharedWebViewProps = (customJSInjection) => ({
+export const sharedWebViewProps = (customJSInjection) => ({
     allowsInlineMediaPlayback: true,
     allowsBackForwardNavigationGestures: true,
     pullToRefreshEnabled: true,
     domStorageEnabled: true,
     autoManageStatusBarEnabled: false,
-    injectedJavaScript: constants_1.INJECTED_JS + customJSInjection,
+    injectedJavaScript: INJECTED_JS + customJSInjection,
 });
-exports.globalWebViewMessageHandler = (apiUrl) => async (e) => {
+export const globalWebViewMessageHandler = (apiUrl) => async (e) => {
     const { event, ...data } = JSON.parse(e.nativeEvent?.data);
     switch (event) {
-        case types_1.EVENTS_FROM_WEB.GET_PUSH:
-            await events_1.handleRegisterPush(apiUrl)(data.user_id);
+        case EVENTS_FROM_WEB.GET_PUSH:
+            await handleRegisterPush(apiUrl)(data.user_id);
             break;
         default:
     }

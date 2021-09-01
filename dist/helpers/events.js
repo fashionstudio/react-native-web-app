@@ -1,10 +1,7 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.handleRegisterPush = void 0;
-const notification_1 = require("./notification");
-exports.handleRegisterPush = (apiUrl) => async (userId) => {
+import { registerForPushNotificationsAsync } from "./notification";
+export const handleRegisterPush = (apiUrl) => async (userId) => {
     try {
-        const token = await notification_1.registerForPushNotificationsAsync();
+        const token = await registerForPushNotificationsAsync();
         if (token)
             fetch(apiUrl, {
                 method: "POST",
