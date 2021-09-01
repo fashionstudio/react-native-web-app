@@ -4,7 +4,7 @@
   "description": "Easily create apps using web views",
   "author": "Johann Buscail <johann@buscail.ey> (https://github.com/johannb75)",
   "license": "MIT",
-  "main": "dist/AppStructure.js",
+  "main": "dist/AppStructure.jsx",
   "files": [
     "dist"
   ],
