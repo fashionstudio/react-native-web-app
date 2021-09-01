@@ -19,6 +19,7 @@ export const Main: React.FC<IAppProps> = ({
 	const isConnected = useIsConnected();
 
 	const reloadWebView = (enableApplePay: boolean) => {
+		console.log("reloading the webview. enable apple pay ?", enableApplePay);
 		setLoading(true);
 		setApplePayEnabled(enableApplePay);
 		setTimeout(() =>
