@@ -6028,10 +6028,10 @@ react-native-reanimated@^2.2.0:
     mockdate "^3.0.2"
     string-hash-64 "^1.0.3"
 
-react-native-redash@^16.2.1:
-  version "16.2.1"
-  resolved "https://registry.yarnpkg.com/react-native-redash/-/react-native-redash-16.2.1.tgz#9e7c1ff7cc0fe0b61619463d212e98b9d5556941"
-  integrity sha512-0j9lGVqed08ZZ5fYtQKag7JHAigls/pHHaRbcEsvgkK4aFXTTwJ+vzNCm8hakrwD0j0WazQ6NVSoqcFp2PFZOw==
+react-native-redash@14.2.4:
+  version "14.2.4"
+  resolved "https://registry.yarnpkg.com/react-native-redash/-/react-native-redash-14.2.4.tgz#5dbb4b2f1a7441bb304fe3494b89e0dc9010c8ef"
+  integrity sha512-/1R9UxXv3ffKcrbxolqa2B247Cgd3ikyEm2q1VlBng77Es6PAD4LAOXQ83pBavvwNfOsbhF3ebkbMpJcLaVt3Q==
   dependencies:
     abs-svg-path "^0.1.1"
     normalize-svg-path "^1.0.1"
