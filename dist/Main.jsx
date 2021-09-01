@@ -3,7 +3,7 @@ import { useIsConnected } from "react-native-offline";
 import { Loading } from "./components/Loading";
 import NoInternet from "./components/NoInternet";
 import CustomWebView from "./components/webview/index.android";
-export const Main = ({ siteUrl, apiUrl = "", fontName = "custom", customJSInjection = "", }) => {
+export const Main = ({ siteUrl, apiUrl = "", paymentUrl = "sberbank.ru", fontName = "custom", customJSInjection = "", }) => {
     const [loading, setLoading] = useState(true);
     const [webviewUrl, setWebviewUrl] = useState(siteUrl);
     const [applePayEnabled, setApplePayEnabled] = useState(false);
@@ -11,7 +11,7 @@ export const Main = ({ siteUrl, apiUrl = "", fontName = "custom", customJSInject
     const reloadWebView = (enableApplePay) => {
         setLoading(true);
         setApplePayEnabled(enableApplePay);
-        setTimeout(() => setLoading(false), 250);
+        setTimeout(() => setLoading(false), 500);
     };
     useEffect(() => {
         setLoading(false);
@@ -20,6 +20,6 @@ export const Main = ({ siteUrl, apiUrl = "", fontName = "custom", customJSInject
         return <Loading />;
     if (!isConnected)
         return <NoInternet fontFamily={fontName}/>;
-    return (<CustomWebView webviewUrl={webviewUrl} apiUrl={apiUrl} setWebviewUrl={setWebviewUrl} reloadWebView={reloadWebView} applePayEnabled={applePayEnabled} customJSInjection={customJSInjection}/>);
+    return (<CustomWebView webviewUrl={webviewUrl} apiUrl={apiUrl} paymentUrl={paymentUrl} setWebviewUrl={setWebviewUrl} reloadWebView={reloadWebView} applePayEnabled={applePayEnabled} customJSInjection={customJSInjection}/>);
 };
 export default Main;

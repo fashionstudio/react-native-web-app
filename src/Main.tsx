@@ -9,6 +9,7 @@ import { IAppProps } from "./types";
 export const Main: React.FC<IAppProps> = ({
 	siteUrl,
 	apiUrl = "",
+	paymentUrl = "sberbank.ru",
 	fontName = "custom",
 	customJSInjection = "",
 }) => {
@@ -21,7 +22,7 @@ export const Main: React.FC<IAppProps> = ({
 		setLoading(true);
 		setApplePayEnabled(enableApplePay);
 		setTimeout(() =>
-			setLoading(false), 250);
+			setLoading(false), 500);
 	};
 
 	useEffect(() => {
@@ -38,6 +39,7 @@ export const Main: React.FC<IAppProps> = ({
 		<CustomWebView
 			webviewUrl={webviewUrl}
 			apiUrl={apiUrl}
+			paymentUrl={paymentUrl}
 			setWebviewUrl={setWebviewUrl}
 			reloadWebView={reloadWebView}
 			applePayEnabled={applePayEnabled}

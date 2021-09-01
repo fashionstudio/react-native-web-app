@@ -17,6 +17,7 @@ const CustomWebView: React.FC<CustomWebViewProps> = ({
 	reloadWebView,
 	applePayEnabled,
 	customJSInjection,
+	paymentUrl,
 }) => {
 	const [webViewLoading, setWebViewLoading] = useState<boolean>(true);
 	const [wantsPrivacy, setPrivacyEnabled] = useState<boolean | "loading">("loading");
@@ -46,13 +47,12 @@ const CustomWebView: React.FC<CustomWebViewProps> = ({
 								setWebViewLoading(true);
 
 								// don't save url when user is submitting form
-								if (navigationType === "formsubmit"
-							|| navigationType === "formresubmit")
+								if (navigationType === "formsubmit" || navigationType === "formresubmit")
 									return;
 
 								setWebviewUrl(url);
 
-								const isPaymentStep: boolean = url.includes("sberbank.ru");
+								const isPaymentStep: boolean = url.includes(paymentUrl);
 
 								// enable apple pay on payment step
 								if (isPaymentStep && !applePayEnabled)

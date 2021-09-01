@@ -6,6 +6,8 @@ export interface CustomWebViewProps {
     webviewUrl: string;
     /** Api url */
     apiUrl: string;
+    /** Payment url */
+    paymentUrl: string;
     /** Custom injected javascript when the site is loading */
     customJSInjection: string;
     /** Change the webview url */
