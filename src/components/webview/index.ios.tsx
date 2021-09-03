@@ -40,7 +40,8 @@ const CustomWebView: React.FC<CustomWebViewProps> = ({
 						<RNWebView
 							ref={WebViewRef}
 							source={{ uri: webviewUrl }}
-							enableApplePay={applePayEnabled}
+							// TODO: enableApplePay={applePayEnabled}
+							enableApplePay
 							thirdPartyCookiesEnabled={!wantsPrivacy}
 							onMessage={globalWebViewMessageHandler(apiUrl)}
 							onLoadStart={({ nativeEvent: { url, navigationType } }) => {

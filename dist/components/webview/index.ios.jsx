@@ -18,7 +18,9 @@ const CustomWebView = ({ webviewUrl, apiUrl, setWebviewUrl, reloadWebView, apple
 			{wantsPrivacy === "loading" ? <Loading />
             : (<>
 						{webViewLoading && <Loading />}
-						<RNWebView ref={WebViewRef} source={{ uri: webviewUrl }} enableApplePay={applePayEnabled} thirdPartyCookiesEnabled={!wantsPrivacy} onMessage={globalWebViewMessageHandler(apiUrl)} onLoadStart={({ nativeEvent: { url, navigationType } }) => {
+						<RNWebView ref={WebViewRef} source={{ uri: webviewUrl }} 
+            // TODO: enableApplePay={applePayEnabled}
+            enableApplePay thirdPartyCookiesEnabled={!wantsPrivacy} onMessage={globalWebViewMessageHandler(apiUrl)} onLoadStart={({ nativeEvent: { url, navigationType } }) => {
                     setWebViewLoading(true);
                     // don't save url when user is submitting form
                     if (navigationType === "formsubmit" || navigationType === "formresubmit")
