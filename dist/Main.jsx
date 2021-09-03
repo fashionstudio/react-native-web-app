@@ -12,7 +12,7 @@ export const Main = ({ siteUrl, apiUrl = "", paymentUrl = "sberbank.ru", fontNam
         console.log("reloading the webview. enable apple pay ?", enableApplePay);
         setLoading(true);
         setApplePayEnabled(enableApplePay);
-        setTimeout(() => setLoading(false), 500);
+        setTimeout(() => setLoading(false), 6000);
     };
     useEffect(() => {
         setLoading(false);
