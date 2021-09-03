@@ -7,12 +7,13 @@ Instead of repeating over and over the same process of creating an app using a w
 This is made for Fashion Studio's apps.
 
 It supports:
-- Push Notifications
-- Tracking Transparency
-- Offline mode
-- Custom font
-- Loading screen
-- Apple Pay
+- [ ] Apple Pay
+- [ ] Tracking Transparency
+- [ ] Push Notifications
+- [x] Offline mode
+- [x] Custom font
+- [x] Loading screen
+- [x] Typings
 
 ## Code Samples
 
