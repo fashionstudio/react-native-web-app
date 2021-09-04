@@ -9,6 +9,7 @@ import { Main } from "./Main";
 // FIXME: https://github.com/EvanBacon/expo-progress/issues/4#issuecomment-910184212
 LogBox.ignoreLogs(["in Reanimated 2"]);
 
+// TODO: add ref with functions and stateful values
 /** Main App constructor */
 export const AppStructure: React.FC<IAppProps> = (props) =>
 	(

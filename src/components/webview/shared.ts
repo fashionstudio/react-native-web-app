@@ -52,5 +52,19 @@ export const globalWebViewMessageHandler = (onUserLoggedIn: TOnUserLoggedIn) =>
 			default:
 		}
 
+		/**
+		 * TODO: accept custom events
+		 *
+		 * @example
+		 * enum CustomEvents {
+  		 *	USER_LOGGED_IN = 'USER_LOGGED_IN',
+  		 *	USER_LOGGED_OUT = 'USER_LOGGED_OUT'
+		 * }
+		 * <AppStructure
+		 * 	customEvents={CustomEvents}
+         * 	onCustomEvent={(event: CustomEvents) => {}}
+		 * />
+		 */
+
 		return nativeEvent;
 	};
