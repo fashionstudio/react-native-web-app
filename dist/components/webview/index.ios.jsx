@@ -16,22 +16,22 @@ const CustomWebView = ({ webviewUrl, setWebviewUrl, reloadWebView, applePayEnabl
     }, []);
     return (<View style={{ flex: 1 }}>
 			{wantsPrivacy === "loading" ? <Loading />
-        : (<>
+            : (<>
 						{webViewLoading && <Loading />}
 						<RNWebView ref={WebViewRef} source={{ uri: webviewUrl }} enableApplePay={applePayEnabled} thirdPartyCookiesEnabled={!wantsPrivacy} onMessage={globalWebViewMessageHandler(onUserLoggedIn)} onLoadStart={({ nativeEvent: { url, navigationType } }) => {
-            setWebViewLoading(true);
-            // don't save url when user is submitting form
-            if (navigationType === "formsubmit" || navigationType === "formresubmit")
-                return;
-            setWebviewUrl(url);
-            const isPaymentStep = url.includes(paymentUrl);
-            // enable apple pay on payment step
-            if (isPaymentStep && !applePayEnabled)
-                reloadWebView(true);
-            // disable apple pay when not on payment step
-            if (!isPaymentStep && applePayEnabled)
-                reloadWebView(false);
-        }} onLoadEnd={() => setWebViewLoading(false)} {...sharedWebViewProps(customJSInjection)}/>
+                    setWebViewLoading(true);
+                    // don't save url when user is submitting form
+                    if (navigationType === "formsubmit" || navigationType === "formresubmit")
+                        return;
+                    setWebviewUrl(url);
+                    const isPaymentStep = url.includes(paymentUrl);
+                    // enable apple pay on payment step
+                    if (isPaymentStep && !applePayEnabled)
+                        reloadWebView(true);
+                    // disable apple pay when not on payment step
+                    if (!isPaymentStep && applePayEnabled)
+                        reloadWebView(false);
+                }} onLoadEnd={() => setWebViewLoading(false)} {...sharedWebViewProps(customJSInjection)}/>
 					</>)}
 		</View>);
 };
