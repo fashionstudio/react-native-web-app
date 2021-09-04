@@ -2,7 +2,7 @@
 export type TOnPushRegistered = (pushToken?: string) => void;
 
 /** When user authenticates */
-export type TOnUserLoggedIn = (user?: unknown) => void;
+export type TOnUserLoggedIn = (user?: any) => void;
 
 export interface IAppProps {
 	/** Website url */
