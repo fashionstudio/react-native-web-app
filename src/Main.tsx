@@ -4,6 +4,7 @@ import { useIsConnected } from "react-native-offline";
 import { Loading } from "./components/Loading";
 import NoInternet from "./components/NoInternet";
 import CustomWebView from "./components/webview/index.android";
+import { handlePushRegistration } from "./helpers/events";
 import { IAppProps } from "./types";
 
 export const Main: React.FC<IAppProps> = ({
@@ -11,6 +12,7 @@ export const Main: React.FC<IAppProps> = ({
 	paymentUrl = "sberbank.ru",
 	fontName = "custom",
 	customJSInjection = "",
+	requestNotificationPermission = false,
 	onPushRegistered = () => {},
 	onUserLoggedIn = () => {},
 }) => {
@@ -31,6 +33,13 @@ export const Main: React.FC<IAppProps> = ({
 	useEffect(() => {
 		setLoading(false);
 	}, []);
+
+	useEffect(() => {
+		if (!requestNotificationPermission)
+			return;
+
+		handlePushRegistration(onPushRegistered);
+	}, [requestNotificationPermission]);
 
 	if (loading)
 		return <Loading />;
