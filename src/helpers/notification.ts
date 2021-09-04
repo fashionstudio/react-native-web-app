@@ -4,7 +4,7 @@ import * as Notifications from "expo-notifications";
 
 export const registerForPushNotificationsAsync = async () => {
 	if (!Constants.isDevice) {
-		alert("Must use physical device for Push Notifications");
+		console.error("Must use physical device for Push Notifications");
 		// TODO: return error codes
 		return;
 	}

@@ -12,13 +12,11 @@ export const Main = ({ siteUrl, paymentUrl = "sberbank.ru", fontName = "custom",
     const [applePayEnabled, setApplePayEnabled] = useState(false);
     const isConnected = useIsConnected();
     const reloadWebView = (enableApplePay) => {
-        console.log("reloading the webview. enable apple pay ?", enableApplePay);
         setLoading(true);
         setApplePayEnabled(enableApplePay);
         setTimeout(() => setLoading(false), 250);
     };
     useEffect(() => {
-        console.log("loading");
         setLoading(false);
     }, []);
     useEffect(() => {
