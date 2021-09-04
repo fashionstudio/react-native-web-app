@@ -31,6 +31,7 @@ export const Main: React.FC<IAppProps> = ({
 	};
 
 	useEffect(() => {
+		console.log("loading");
 		setLoading(false);
 	}, []);
 

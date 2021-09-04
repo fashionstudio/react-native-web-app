@@ -6,6 +6,7 @@ export const handlePushRegistration = async (onPushRegistered: TOnPushRegistered
 		const token = await registerForPushNotificationsAsync();
 		return onPushRegistered(token);
 	} catch (e) {
+		// TODO: return error codes
 		console.error(e);
 	}
 };

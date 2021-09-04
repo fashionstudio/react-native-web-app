@@ -17,6 +17,7 @@ export const Main = ({ siteUrl, paymentUrl = "sberbank.ru", fontName = "custom",
         setTimeout(() => setLoading(false), 6000);
     };
     useEffect(() => {
+        console.log("loading");
         setLoading(false);
     }, []);
     useEffect(() => {

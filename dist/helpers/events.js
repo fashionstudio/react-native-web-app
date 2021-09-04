@@ -5,6 +5,7 @@ export const handlePushRegistration = async (onPushRegistered) => {
         return onPushRegistered(token);
     }
     catch (e) {
+        // TODO: return error codes
         console.error(e);
     }
 };
