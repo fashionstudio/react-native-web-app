@@ -15,7 +15,7 @@ export interface IAppProps {
     /**
      * Should the app request notifications permission.
      * If it's a success, it will return an expo push notification token
-     * For it's usage, read [expo's doc](https://docs.expo.dev/push-notifications/sending-notifications/).
+     * For it's usage, read [expo's documentation](https://docs.expo.dev/push-notifications/sending-notifications/).
      * */
     requestNotificationPermission?: boolean;
     onPushRegistered?: TOnPushRegistered;
