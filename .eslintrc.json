@@ -35,6 +35,11 @@
 	},
 	"rules": {
 		"eqeqeq": 2,
+		"semi": "off",
+		"@typescript-eslint/semi": [
+			"error",
+			"always"
+		],
 		"react/no-unescaped-entities": 0,
 		"react/require-default-props": 0,
 		"react/state-in-constructor": 0,
