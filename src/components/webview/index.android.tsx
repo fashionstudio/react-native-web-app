@@ -70,11 +70,11 @@ export default class CustomWebView extends React.Component<CustomWebViewProps, S
 		this.webView.current?.reload();
 
 	onWebViewMessage = async (e: WebViewMessageEvent) => {
-		const { event, ...data } = await globalWebViewMessageHandler(this.props.apiUrl)(e);
+		const nativeEvent = await globalWebViewMessageHandler(this.props.onUserLoggedIn)(e);
 
-		switch (event) {
+		switch (nativeEvent.event) {
 			case EVENTS_FROM_WEB.SCROLL:
-				this.setState({ isPullToRefreshEnabled: data.scrollTop === 0 });
+				this.setState({ isPullToRefreshEnabled: nativeEvent.scrollTop === 0 });
 				break;
 			default:
 		}

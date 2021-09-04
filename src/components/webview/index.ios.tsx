@@ -12,12 +12,12 @@ import {
 
 const CustomWebView: React.FC<CustomWebViewProps> = ({
 	webviewUrl,
-	apiUrl,
 	setWebviewUrl,
 	reloadWebView,
 	applePayEnabled,
 	customJSInjection,
 	paymentUrl,
+	onUserLoggedIn,
 }) => {
 	const [webViewLoading, setWebViewLoading] = useState<boolean>(true);
 	const [wantsPrivacy, setPrivacyEnabled] = useState<boolean | "loading">("loading");
@@ -40,10 +40,9 @@ const CustomWebView: React.FC<CustomWebViewProps> = ({
 						<RNWebView
 							ref={WebViewRef}
 							source={{ uri: webviewUrl }}
-							// TODO: enableApplePay={applePayEnabled}
-							enableApplePay
+							enableApplePay={applePayEnabled}
 							thirdPartyCookiesEnabled={!wantsPrivacy}
-							onMessage={globalWebViewMessageHandler(apiUrl)}
+							onMessage={globalWebViewMessageHandler(onUserLoggedIn)}
 							onLoadStart={({ nativeEvent: { url, navigationType } }) => {
 								setWebViewLoading(true);
 

@@ -2,15 +2,12 @@ import React from "react";
 import { WebViewMessageEvent, WebViewProps } from "react-native-webview";
 
 import { INJECTED_JS } from "../../helpers/constants";
-import { handleRegisterPush } from "../../helpers/events";
 import { EVENTS_FROM_WEB, IEvent } from "../../helpers/types";
+import { TOnPushRegistered, TOnUserLoggedIn } from "../../types";
 
 export interface CustomWebViewProps {
     /** The url to load */
     webviewUrl: string;
-
-    /** Api url */
-    apiUrl: string;
 
 	/** Payment url */
 	paymentUrl: string;
@@ -26,6 +23,11 @@ export interface CustomWebViewProps {
 
     /** Should apple pay be enabled */
     applePayEnabled: boolean;
+
+	// EVENTS
+	onPushRegistered: TOnPushRegistered
+
+	onUserLoggedIn: TOnUserLoggedIn
 }
 
 /** Same props used for the android and ios webview */
@@ -39,16 +41,16 @@ export const sharedWebViewProps = (customJSInjection: string): Partial<WebViewPr
 		injectedJavaScript: INJECTED_JS + customJSInjection,
 	});
 
-export const globalWebViewMessageHandler = (apiUrl: string) =>
+export const globalWebViewMessageHandler = (onUserLoggedIn: TOnUserLoggedIn) =>
 	async (e: WebViewMessageEvent): Promise<IEvent> => {
-		const { event, ...data }: IEvent = JSON.parse(e.nativeEvent?.data);
+		const nativeEvent: IEvent = JSON.parse(e.nativeEvent?.data);
 
-		switch (event) {
-			case EVENTS_FROM_WEB.GET_PUSH:
-				await handleRegisterPush(apiUrl)(data.user_id);
+		switch (nativeEvent.event) {
+			case EVENTS_FROM_WEB.USER_LOGGED_IN:
+				onUserLoggedIn(nativeEvent.user);
 				break;
 			default:
 		}
 
-		return { event, ...data };
+		return nativeEvent;
 	};

@@ -8,12 +8,14 @@ import { IAppProps } from "./types";
 
 export const Main: React.FC<IAppProps> = ({
 	siteUrl,
-	apiUrl = "",
 	paymentUrl = "sberbank.ru",
 	fontName = "custom",
 	customJSInjection = "",
+	onPushRegistered = () => {},
+	onUserLoggedIn = () => {},
 }) => {
-	const [loading, setLoading] = useState(true);
+	// TODO: move everything to context to prevent props passing
+	const [loading, setLoading] = useState<boolean>(true);
 	const [webviewUrl, setWebviewUrl] = useState<string>(siteUrl);
 	const [applePayEnabled, setApplePayEnabled] = useState<boolean>(false);
 	const isConnected = useIsConnected();
@@ -39,12 +41,13 @@ export const Main: React.FC<IAppProps> = ({
 	return (
 		<CustomWebView
 			webviewUrl={webviewUrl}
-			apiUrl={apiUrl}
 			paymentUrl={paymentUrl}
 			setWebviewUrl={setWebviewUrl}
 			reloadWebView={reloadWebView}
 			applePayEnabled={applePayEnabled}
 			customJSInjection={customJSInjection}
+			onPushRegistered={onPushRegistered}
+			onUserLoggedIn={onUserLoggedIn}
 		/>
 	);
 };
