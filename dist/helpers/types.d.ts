@@ -1,6 +1,6 @@
 interface ILoginEvent {
     event: EVENTS_FROM_WEB.USER_LOGGED_IN;
-    user?: unknown;
+    user?: any;
 }
 interface IScrollEvent {
     event: EVENTS_FROM_WEB.SCROLL;

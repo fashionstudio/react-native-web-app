@@ -1,7 +1,7 @@
 /** Handle push registration */
 export declare type TOnPushRegistered = (pushToken?: string) => void;
 /** When user authenticates */
-export declare type TOnUserLoggedIn = (user?: unknown) => void;
+export declare type TOnUserLoggedIn = (user?: any) => void;
 export interface IAppProps {
     /** Website url */
     siteUrl: string;
