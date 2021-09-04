@@ -1,8 +1,14 @@
-export interface IEvent {
-    event: EVENTS_FROM_WEB;
-    [info: string]: any;
+interface ILoginEvent {
+    event: EVENTS_FROM_WEB.USER_LOGGED_IN;
+    user?: unknown;
 }
+interface IScrollEvent {
+    event: EVENTS_FROM_WEB.SCROLL;
+    scrollTop: number;
+}
+export declare type IEvent = IScrollEvent | ILoginEvent;
 export declare enum EVENTS_FROM_WEB {
-    GET_PUSH = "get-push",
+    USER_LOGGED_IN = "user-logged-in",
     SCROLL = "scrolling"
 }
+export {};

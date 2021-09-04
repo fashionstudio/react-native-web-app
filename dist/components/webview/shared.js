@@ -1,5 +1,4 @@
 import { INJECTED_JS } from "../../helpers/constants";
-import { handleRegisterPush } from "../../helpers/events";
 import { EVENTS_FROM_WEB } from "../../helpers/types";
 /** Same props used for the android and ios webview */
 export const sharedWebViewProps = (customJSInjection) => ({
@@ -10,13 +9,13 @@ export const sharedWebViewProps = (customJSInjection) => ({
     autoManageStatusBarEnabled: false,
     injectedJavaScript: INJECTED_JS + customJSInjection,
 });
-export const globalWebViewMessageHandler = (apiUrl) => async (e) => {
-    const { event, ...data } = JSON.parse(e.nativeEvent?.data);
-    switch (event) {
-        case EVENTS_FROM_WEB.GET_PUSH:
-            await handleRegisterPush(apiUrl)(data.user_id);
+export const globalWebViewMessageHandler = (onUserLoggedIn) => async (e) => {
+    const nativeEvent = JSON.parse(e.nativeEvent?.data);
+    switch (nativeEvent.event) {
+        case EVENTS_FROM_WEB.USER_LOGGED_IN:
+            onUserLoggedIn(nativeEvent.user);
             break;
         default:
     }
-    return { event, ...data };
+    return nativeEvent;
 };

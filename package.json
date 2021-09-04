@@ -9,7 +9,9 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsc --watch"
+    "build:watch": "tsc --watch",
+    "build": "tsc",
+    "precommit": "yarn build"
   },
   "repository": {
     "type": "git",

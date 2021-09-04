@@ -13,49 +13,52 @@ const WEBVIEW = (height) => ({
     height,
 });
 export default class CustomWebView extends React.Component {
-    webView = React.createRef();
-    state = {
-        isPullToRefreshEnabled: false,
-        scrollViewHeight: 0,
-        canGoBack: false,
-        loading: true,
-    };
+    constructor() {
+        super(...arguments);
+        this.webView = React.createRef();
+        this.state = {
+            isPullToRefreshEnabled: false,
+            scrollViewHeight: 0,
+            canGoBack: false,
+            loading: true,
+        };
+        this.onRefresh = () => this.webView.current?.reload();
+        this.onWebViewMessage = async (e) => {
+            const nativeEvent = await globalWebViewMessageHandler(this.props.onUserLoggedIn)(e);
+            switch (nativeEvent.event) {
+                case EVENTS_FROM_WEB.SCROLL:
+                    this.setState({ isPullToRefreshEnabled: nativeEvent.scrollTop === 0 });
+                    break;
+                default:
+            }
+        };
+        this.handleBackButton = () => {
+            if (this.state.canGoBack) {
+                this.webView.current?.goBack();
+                return true;
+            }
+        };
+        this.onNavigationStateChange = (navState) => {
+            this.setState({
+                canGoBack: navState.canGoBack,
+            });
+            this.props.setWebviewUrl(navState.url);
+        };
+    }
     componentDidMount() {
         BackHandler.addEventListener("hardwareBackPress", this.handleBackButton);
     }
     componentWillUnmount() {
         BackHandler.removeEventListener("hardwareBackPress", this.handleBackButton);
     }
-    onRefresh = () => this.webView.current?.reload();
-    onWebViewMessage = async (e) => {
-        const { event, ...data } = await globalWebViewMessageHandler(this.props.apiUrl)(e);
-        switch (event) {
-            case EVENTS_FROM_WEB.SCROLL:
-                this.setState({ isPullToRefreshEnabled: data.scrollTop === 0 });
-                break;
-            default:
-        }
-    };
-    handleBackButton = () => {
-        if (this.state.canGoBack) {
-            this.webView.current?.goBack();
-            return true;
-        }
-    };
-    onNavigationStateChange = (navState) => {
-        this.setState({
-            canGoBack: navState.canGoBack,
-        });
-        this.props.setWebviewUrl(navState.url);
-    };
     render() {
         const { scrollViewHeight, isPullToRefreshEnabled, loading } = this.state;
         const { webviewUrl, customJSInjection } = this.props;
         return (<View style={{ flex: 1 }}>
 				{loading && <Loading />}
 				<ScrollView style={SCROLLVIEW_CONTAINER} onLayout={(e) => this.setState({
-                scrollViewHeight: e.nativeEvent.layout.height,
-            })} refreshControl={(<RefreshControl refreshing={false} enabled={isPullToRefreshEnabled} onRefresh={this.onRefresh} tintColor="transparent" colors={["transparent"]} style={{ backgroundColor: "transparent" }}/>)}>
+            scrollViewHeight: e.nativeEvent.layout.height,
+        })} refreshControl={(<RefreshControl refreshing={false} enabled={isPullToRefreshEnabled} onRefresh={this.onRefresh} tintColor="transparent" colors={["transparent"]} style={{ backgroundColor: "transparent" }}/>)}>
 					<RNWebView source={{ uri: webviewUrl }} ref={this.webView} style={WEBVIEW(scrollViewHeight)} onMessage={this.onWebViewMessage} onNavigationStateChange={this.onNavigationStateChange} onLoadStart={() => { this.setState({ loading: true }); }} onLoadEnd={() => this.setState({ loading: false })} {...sharedWebViewProps(customJSInjection)}/>
 				</ScrollView>
 			</View>);
