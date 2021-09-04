@@ -31,7 +31,7 @@ export const Main: React.FC<IAppProps> = ({
 		setLoading(true);
 		setApplePayEnabled(enableApplePay);
 		setTimeout(() =>
-			setLoading(false), 6000);
+			setLoading(false), 250);
 	};
 
 	useEffect(() => {
