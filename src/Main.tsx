@@ -3,9 +3,13 @@ import { useIsConnected } from "react-native-offline";
 
 import { Loading } from "./components/Loading";
 import NoInternet from "./components/NoInternet";
-import CustomWebView from "./components/webview/index.android";
+import { CustomWebViewProps } from "./components/webview/shared";
+
 import { handlePushRegistration } from "./helpers/events";
 import { IAppProps } from "./types";
+
+// eslint-disable-next-line import/order, import/no-unresolved, import/no-useless-path-segments
+const CustomWebView: React.FC<CustomWebViewProps> =	require("./components/webview").default;
 
 export const Main: React.FC<IAppProps> = ({
 	siteUrl,

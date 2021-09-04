@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useIsConnected } from "react-native-offline";
 import { Loading } from "./components/Loading";
 import NoInternet from "./components/NoInternet";
-import CustomWebView from "./components/webview/index.android";
 import { handlePushRegistration } from "./helpers/events";
+// eslint-disable-next-line import/order, import/no-unresolved, import/no-useless-path-segments
+const CustomWebView = require("./components/webview").default;
 export const Main = ({ siteUrl, paymentUrl = "sberbank.ru", fontName = "custom", customJSInjection = "", requestNotificationPermission = false, onPushRegistered = () => { }, onUserLoggedIn = () => { }, }) => {
     // TODO: move everything to context to prevent props passing
     const [loading, setLoading] = useState(true);
