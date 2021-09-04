@@ -1,5 +1,6 @@
+import { ExpoPushToken } from "expo-notifications";
 /** Handle push registration */
-export declare type TOnPushRegistered = (pushToken?: string) => void;
+export declare type TOnPushRegistered = (pushToken?: ExpoPushToken) => void;
 /** When user authenticates */
 export declare type TOnUserLoggedIn = (user?: any) => void;
 export interface IAppProps {

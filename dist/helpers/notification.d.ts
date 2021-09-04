@@ -1,1 +1,2 @@
-export declare function registerForPushNotificationsAsync(): Promise<string | undefined>;
+import * as Notifications from "expo-notifications";
+export declare const registerForPushNotificationsAsync: () => Promise<Notifications.ExpoPushToken | undefined>;
