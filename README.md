@@ -8,7 +8,7 @@ This is made for Fashion Studio's apps.
 
 It supports:
 - [ ] Tracking Transparency
-- [ ] User Authentication
+- [ ] Custom Events (like user authentication)
 - [x] Apple Pay
 - [x] Push Notifications
 - [x] Offline mode
