@@ -39,3 +39,10 @@ Or read [this stackoverflow post][2]
 [1]: https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token
 
 [2]: https://stackoverflow.com/a/28729646/12624093
+
+
+## TODOs
+
+- [ ] Accept custom events
+- [ ] Move everything to context to prevent props passing
+- [ ] Add ref

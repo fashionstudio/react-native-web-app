@@ -1,12 +1,12 @@
 import { TOnPushRegistered } from "../types";
+import { StructureError } from "./errors";
 import { registerForPushNotificationsAsync } from "./notification";
 
 export const handlePushRegistration = async (onPushRegistered: TOnPushRegistered) => {
 	try {
 		const token = await registerForPushNotificationsAsync();
-		return onPushRegistered(token);
+		return onPushRegistered({ pushToken: token });
 	} catch (e) {
-		// TODO: return error codes
-		console.error(e);
+		return onPushRegistered({ error: e as StructureError });
 	}
 };

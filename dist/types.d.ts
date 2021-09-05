@@ -1,6 +1,10 @@
 import { ExpoPushToken } from "expo-notifications";
+import { StructureError } from "./helpers/errors";
 /** Handle push registration */
-export declare type TOnPushRegistered = (pushToken?: ExpoPushToken) => void;
+export declare type TOnPushRegistered = (values: {
+    pushToken?: ExpoPushToken;
+    error?: StructureError;
+}) => void;
 /** When user authenticates */
 export declare type TOnUserLoggedIn = (user?: any) => void;
 export interface IAppProps {

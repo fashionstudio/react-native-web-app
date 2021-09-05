@@ -1,7 +1,11 @@
 import { ExpoPushToken } from "expo-notifications";
+import { StructureError } from "./helpers/errors";
 
 /** Handle push registration */
-export type TOnPushRegistered = (pushToken?: ExpoPushToken) => void;
+export type TOnPushRegistered = (values: {
+	pushToken?: ExpoPushToken,
+	error?: StructureError
+}) => void;
 
 /** When user authenticates */
 export type TOnUserLoggedIn = (user?: any) => void;

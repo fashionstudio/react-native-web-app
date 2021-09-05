@@ -1,13 +1,14 @@
 import { Platform } from "react-native";
 import Constants from "expo-constants";
 import * as Notifications from "expo-notifications";
+import { ErrorCodes, StructureError } from "./errors";
 
 export const registerForPushNotificationsAsync = async () => {
-	if (!Constants.isDevice) {
-		console.error("Must use physical device for Push Notifications");
-		// TODO: return error codes
-		return;
-	}
+	if (!Constants.isDevice)
+		throw new StructureError(
+			"Expo.Notifications only work on devices",
+			ErrorCodes.ONLY_PHYSICAL_DEVICES_ALLOWED,
+		);
 
 	const { status: existingStatus } = await Notifications.getPermissionsAsync();
 
