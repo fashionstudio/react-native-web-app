@@ -12,10 +12,11 @@ import { Loading } from "../Loading";
 
 import { EVENTS_FROM_WEB } from "../../helpers/types";
 import { globalWebViewMessageHandler } from "../../helpers/webviewCommunication";
+import { StructureContext } from "../../helpers/context";
 
 import {
 	sharedWebViewProps,
-	CustomWebViewProps,
+	ICustomWebViewProps,
 } from "./sharedProps";
 
 const SCROLLVIEW_CONTAINER = {
@@ -42,8 +43,10 @@ interface State {
 	/** If the webview is loading */
 	loading: boolean,
 }
+export class CustomWebView extends React.Component<ICustomWebViewProps, State> {
+	// eslint-disable-next-line react/static-property-placement
+	declare context: React.ContextType<typeof StructureContext>;
 
-export default class CustomWebView extends React.Component<CustomWebViewProps, State> {
 	webView = React.createRef<RNWebView>();
 
 	state = {
@@ -71,7 +74,11 @@ export default class CustomWebView extends React.Component<CustomWebViewProps, S
 		this.webView.current?.reload();
 
 	onWebViewMessage = async (e: WebViewMessageEvent) => {
-		const nativeEvent = await globalWebViewMessageHandler(this.props.customEvents, this.props.onCustomEvent)(e);
+		const { customEvents, onCustomEvent } = this.context;
+		const nativeEvent = await globalWebViewMessageHandler(
+			customEvents,
+			onCustomEvent,
+		)(e);
 
 		switch (nativeEvent.event) {
 			case EVENTS_FROM_WEB.SCROLL:
@@ -97,7 +104,9 @@ export default class CustomWebView extends React.Component<CustomWebViewProps, S
 
 	render() {
 		const { scrollViewHeight, isPullToRefreshEnabled, loading } = this.state;
-		const { webviewUrl, customJSInjection } = this.props;
+		const { webviewUrl } = this.props;
+		const { customJSInjection } = this.context;
+
 		return (
 			<View style={{ flex: 1 }}>
 				{loading && <Loading />}
@@ -134,3 +143,7 @@ export default class CustomWebView extends React.Component<CustomWebViewProps, S
 		);
 	}
 }
+
+CustomWebView.contextType = StructureContext;
+
+export default CustomWebView;

@@ -43,7 +43,6 @@ Or read [this stackoverflow post][2]
 
 ## TODOs
 
-- [ ] Move everything to context to prevent props passing
 - [ ] Add ref
 - [ ] Add generic types
 - [ ] Format everything

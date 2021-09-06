@@ -4,6 +4,7 @@ import { WebView as RNWebView, } from "react-native-webview";
 import { Loading } from "../Loading";
 import { EVENTS_FROM_WEB } from "../../helpers/types";
 import { globalWebViewMessageHandler } from "../../helpers/webviewCommunication";
+import { StructureContext } from "../../helpers/context";
 import { sharedWebViewProps, } from "./sharedProps";
 const SCROLLVIEW_CONTAINER = {
     flex: 1,
@@ -13,7 +14,7 @@ const WEBVIEW = (height) => ({
     width: "100%",
     height,
 });
-export default class CustomWebView extends React.Component {
+export class CustomWebView extends React.Component {
     webView = React.createRef();
     state = {
         isPullToRefreshEnabled: false,
@@ -29,7 +30,8 @@ export default class CustomWebView extends React.Component {
     }
     onRefresh = () => this.webView.current?.reload();
     onWebViewMessage = async (e) => {
-        const nativeEvent = await globalWebViewMessageHandler(this.props.customEvents, this.props.onCustomEvent)(e);
+        const { customEvents, onCustomEvent } = this.context;
+        const nativeEvent = await globalWebViewMessageHandler(customEvents, onCustomEvent)(e);
         switch (nativeEvent.event) {
             case EVENTS_FROM_WEB.SCROLL:
                 this.setState({ isPullToRefreshEnabled: nativeEvent.scrollTop === 0 });
@@ -51,7 +53,8 @@ export default class CustomWebView extends React.Component {
     };
     render() {
         const { scrollViewHeight, isPullToRefreshEnabled, loading } = this.state;
-        const { webviewUrl, customJSInjection } = this.props;
+        const { webviewUrl } = this.props;
+        const { customJSInjection } = this.context;
         return (<View style={{ flex: 1 }}>
 				{loading && <Loading />}
 				<ScrollView style={SCROLLVIEW_CONTAINER} onLayout={(e) => this.setState({
@@ -62,3 +65,5 @@ export default class CustomWebView extends React.Component {
 			</View>);
     }
 }
+CustomWebView.contextType = StructureContext;
+export default CustomWebView;

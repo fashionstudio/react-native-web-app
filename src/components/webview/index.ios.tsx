@@ -1,4 +1,6 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, {
+	useState, useEffect, useRef, useContext,
+} from "react";
 import { View } from "react-native";
 import { WebView as RNWebView } from "react-native-webview";
 import { requestTrackingPermissionsAsync } from "expo-tracking-transparency";
@@ -6,22 +8,26 @@ import { requestTrackingPermissionsAsync } from "expo-tracking-transparency";
 import { Loading } from "../Loading";
 
 import { globalWebViewMessageHandler } from "../../helpers/webviewCommunication";
+import { StructureContext } from "../../helpers/context";
 
 import {
 	sharedWebViewProps,
-	CustomWebViewProps,
+	ICustomWebViewProps,
 } from "./sharedProps";
 
-const CustomWebView: React.FC<CustomWebViewProps> = ({
+const CustomWebView: React.FC<ICustomWebViewProps> = ({
 	webviewUrl,
 	setWebviewUrl,
 	reloadWebView,
 	applePayEnabled,
-	customJSInjection,
-	paymentUrl,
-	customEvents,
-	onCustomEvent,
 }) => {
+	const {
+		customJSInjection,
+		customEvents,
+		paymentUrl,
+		onCustomEvent,
+	} = useContext(StructureContext);
+
 	const [webViewLoading, setWebViewLoading] = useState<boolean>(true);
 	const [wantsPrivacy, setPrivacyEnabled] = useState<boolean | "loading">("loading");
 

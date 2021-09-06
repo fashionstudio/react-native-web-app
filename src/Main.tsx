@@ -1,32 +1,21 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useIsConnected } from "react-native-offline";
 
 import { Loading } from "./components/Loading";
 import NoInternet from "./components/NoInternet";
-import { CustomWebViewProps } from "./components/webview/sharedProps";
+import { ICustomWebViewProps } from "./components/webview/sharedProps";
 
 import { handlePushRegistration } from "./helpers/events";
-import { IAppProps } from "./types";
+import { StructureContext } from "./helpers/context";
 
 // eslint-disable-next-line import/order, import/no-unresolved, import/no-useless-path-segments
-const CustomWebView: React.FC<CustomWebViewProps> =	require("./components/webview").default;
+const CustomWebView: React.FC<ICustomWebViewProps> = require("./components/webview").default;
 
-export const Main: React.FC<IAppProps> = ({
-	siteUrl,
-	paymentUrl = "sberbank.ru",
+export const Main: React.FC = () => {
+	const props = useContext(StructureContext);
 
-	fontName = "custom",
-	customJSInjection = "",
-
-	requestNotificationPermission = false,
-	onPushRegistered = () => {},
-
-	customEvents = [],
-	onCustomEvent = () => {},
-}) => {
-	// TODO: move everything to context to prevent props passing
 	const [loading, setLoading] = useState<boolean>(true);
-	const [webviewUrl, setWebviewUrl] = useState<string>(siteUrl);
+	const [webviewUrl, setWebviewUrl] = useState<string>(props.siteUrl);
 	const [applePayEnabled, setApplePayEnabled] = useState<boolean>(false);
 	const isConnected = useIsConnected();
 
@@ -42,29 +31,24 @@ export const Main: React.FC<IAppProps> = ({
 	}, []);
 
 	useEffect(() => {
-		if (!requestNotificationPermission)
+		if (!props.requestNotificationPermission)
 			return;
 
-		handlePushRegistration(onPushRegistered);
-	}, [requestNotificationPermission]);
+		handlePushRegistration(props.onPushRegistered);
+	}, [props.requestNotificationPermission]);
 
 	if (loading)
 		return <Loading />;
 
 	if (!isConnected)
-		return <NoInternet fontFamily={fontName} />;
+		return <NoInternet />;
 
 	return (
 		<CustomWebView
 			webviewUrl={webviewUrl}
-			paymentUrl={paymentUrl}
 			setWebviewUrl={setWebviewUrl}
 			reloadWebView={reloadWebView}
 			applePayEnabled={applePayEnabled}
-			customJSInjection={customJSInjection}
-			onPushRegistered={onPushRegistered}
-			customEvents={customEvents}
-			onCustomEvent={onCustomEvent}
 		/>
 	);
 };

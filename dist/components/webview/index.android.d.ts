@@ -1,6 +1,7 @@
 import * as React from "react";
 import { WebView as RNWebView, WebViewMessageEvent, WebViewNavigation } from "react-native-webview";
-import { CustomWebViewProps } from "./sharedProps";
+import { StructureContext } from "../../helpers/context";
+import { ICustomWebViewProps } from "./sharedProps";
 interface State {
     /** If the user is swiping to refresh or not */
     isPullToRefreshEnabled: boolean;
@@ -11,7 +12,8 @@ interface State {
     /** If the webview is loading */
     loading: boolean;
 }
-export default class CustomWebView extends React.Component<CustomWebViewProps, State> {
+export declare class CustomWebView extends React.Component<ICustomWebViewProps, State> {
+    context: React.ContextType<typeof StructureContext>;
     webView: React.RefObject<RNWebView<{}>>;
     state: {
         isPullToRefreshEnabled: boolean;
@@ -27,4 +29,4 @@ export default class CustomWebView extends React.Component<CustomWebViewProps, S
     onNavigationStateChange: (navState: WebViewNavigation) => void;
     render(): JSX.Element;
 }
-export {};
+export default CustomWebView;

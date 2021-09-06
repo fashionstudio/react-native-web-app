@@ -1,14 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
 	StyleSheet,
 	Text,
 	SafeAreaView,
 	TouchableOpacity,
 } from "react-native";
-
-interface Props {
-	fontFamily: string;
-}
+import { StructureContext } from "../helpers/context";
 
 const styles = StyleSheet.create({
 	button: {
@@ -25,8 +22,10 @@ const styles = StyleSheet.create({
 	},
 });
 
-const NoInternet: React.FC<Props> = ({ fontFamily }) =>
-	(
+const NoInternet: React.FC = () => {
+	const { fontName: fontFamily } = useContext(StructureContext);
+
+	return (
 		<SafeAreaView
 			style={{ flex: 1, alignItems: "center", justifyContent: "center" }}
 		>
@@ -40,5 +39,5 @@ const NoInternet: React.FC<Props> = ({ fontFamily }) =>
 			</TouchableOpacity>
 		</SafeAreaView>
 	);
-
+};
 export default NoInternet;

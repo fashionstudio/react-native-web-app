@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import { StyleSheet, Text, SafeAreaView, TouchableOpacity, } from "react-native";
+import { StructureContext } from "../helpers/context";
 const styles = StyleSheet.create({
     button: {
         marginTop: 25,
@@ -14,7 +15,9 @@ const styles = StyleSheet.create({
         textAlign: "center",
     },
 });
-const NoInternet = ({ fontFamily }) => (<SafeAreaView style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+const NoInternet = () => {
+    const { fontName: fontFamily } = useContext(StructureContext);
+    return (<SafeAreaView style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
 			<Text style={{ fontFamily, fontSize: 18 }}>
 				Вы не подключены к Интернету.
 			</Text>
@@ -24,4 +27,5 @@ const NoInternet = ({ fontFamily }) => (<SafeAreaView style={{ flex: 1, alignIte
 				</Text>
 			</TouchableOpacity>
 		</SafeAreaView>);
+};
 export default NoInternet;

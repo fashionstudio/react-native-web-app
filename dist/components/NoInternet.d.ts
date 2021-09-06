@@ -1,6 +1,3 @@
 import React from "react";
-interface Props {
-    fontFamily: string;
-}
-declare const NoInternet: React.FC<Props>;
+declare const NoInternet: React.FC;
 export default NoInternet;

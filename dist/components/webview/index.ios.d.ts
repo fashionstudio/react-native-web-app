@@ -1,4 +1,4 @@
 import React from "react";
-import { CustomWebViewProps } from "./sharedProps";
-declare const CustomWebView: React.FC<CustomWebViewProps>;
+import { ICustomWebViewProps } from "./sharedProps";
+declare const CustomWebView: React.FC<ICustomWebViewProps>;
 export default CustomWebView;
