@@ -3,8 +3,9 @@ import { View } from "react-native";
 import { WebView as RNWebView } from "react-native-webview";
 import { requestTrackingPermissionsAsync } from "expo-tracking-transparency";
 import { Loading } from "../Loading";
-import { sharedWebViewProps, globalWebViewMessageHandler, } from "./shared";
-const CustomWebView = ({ webviewUrl, setWebviewUrl, reloadWebView, applePayEnabled, customJSInjection, paymentUrl, onUserLoggedIn, }) => {
+import { globalWebViewMessageHandler } from "../../helpers/webviewCommunication";
+import { sharedWebViewProps, } from "./sharedProps";
+const CustomWebView = ({ webviewUrl, setWebviewUrl, reloadWebView, applePayEnabled, customJSInjection, paymentUrl, customEvents, onCustomEvent, }) => {
     const [webViewLoading, setWebViewLoading] = useState(true);
     const [wantsPrivacy, setPrivacyEnabled] = useState("loading");
     const WebViewRef = useRef(null);
@@ -18,7 +19,7 @@ const CustomWebView = ({ webviewUrl, setWebviewUrl, reloadWebView, applePayEnabl
 			{wantsPrivacy === "loading" ? <Loading />
             : (<>
 						{webViewLoading && <Loading />}
-						<RNWebView ref={WebViewRef} source={{ uri: webviewUrl }} enableApplePay={applePayEnabled} thirdPartyCookiesEnabled={!wantsPrivacy} onMessage={globalWebViewMessageHandler(onUserLoggedIn)} onLoadStart={({ nativeEvent: { url, navigationType } }) => {
+						<RNWebView ref={WebViewRef} source={{ uri: webviewUrl }} enableApplePay={applePayEnabled} thirdPartyCookiesEnabled={!wantsPrivacy} onMessage={globalWebViewMessageHandler(customEvents, onCustomEvent)} onLoadStart={({ nativeEvent: { url, navigationType } }) => {
                     setWebViewLoading(true);
                     // don't save url when user is submitting form
                     if (navigationType === "formsubmit" || navigationType === "formresubmit")

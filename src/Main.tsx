@@ -3,7 +3,7 @@ import { useIsConnected } from "react-native-offline";
 
 import { Loading } from "./components/Loading";
 import NoInternet from "./components/NoInternet";
-import { CustomWebViewProps } from "./components/webview/shared";
+import { CustomWebViewProps } from "./components/webview/sharedProps";
 
 import { handlePushRegistration } from "./helpers/events";
 import { IAppProps } from "./types";
@@ -14,11 +14,15 @@ const CustomWebView: React.FC<CustomWebViewProps> =	require("./components/webvie
 export const Main: React.FC<IAppProps> = ({
 	siteUrl,
 	paymentUrl = "sberbank.ru",
+
 	fontName = "custom",
 	customJSInjection = "",
+
 	requestNotificationPermission = false,
 	onPushRegistered = () => {},
-	onUserLoggedIn = () => {},
+
+	customEvents = [],
+	onCustomEvent = () => {},
 }) => {
 	// TODO: move everything to context to prevent props passing
 	const [loading, setLoading] = useState<boolean>(true);
@@ -59,7 +63,8 @@ export const Main: React.FC<IAppProps> = ({
 			applePayEnabled={applePayEnabled}
 			customJSInjection={customJSInjection}
 			onPushRegistered={onPushRegistered}
-			onUserLoggedIn={onUserLoggedIn}
+			customEvents={customEvents}
+			onCustomEvent={onCustomEvent}
 		/>
 	);
 };

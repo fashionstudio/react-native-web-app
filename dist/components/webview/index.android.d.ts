@@ -1,6 +1,6 @@
 import * as React from "react";
 import { WebView as RNWebView, WebViewMessageEvent, WebViewNavigation } from "react-native-webview";
-import { CustomWebViewProps } from "./shared";
+import { CustomWebViewProps } from "./sharedProps";
 interface State {
     /** If the user is swiping to refresh or not */
     isPullToRefreshEnabled: boolean;

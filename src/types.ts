@@ -7,8 +7,11 @@ export type TOnPushRegistered = (values: {
 	error?: StructureError
 }) => void;
 
-/** When user authenticates */
-export type TOnUserLoggedIn = (user?: any) => void;
+// TODO: use generics
+export type TCustomEvent = string | number;
+
+/** Handle Custom Events */
+export type TOnCustomEvent = (event: TCustomEvent, data: any) => void;
 
 export interface IAppProps {
 	/** Website url */
@@ -31,8 +34,10 @@ export interface IAppProps {
 	requestNotificationPermission?: boolean;
 
 	// EVENTS
-	onPushRegistered?: TOnPushRegistered
+	onPushRegistered?: TOnPushRegistered;
 
-	onUserLoggedIn?: TOnUserLoggedIn
+	customEvents?: TCustomEvent[];
+
+	onCustomEvent?: TOnCustomEvent;
 
 }

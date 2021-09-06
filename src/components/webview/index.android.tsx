@@ -11,11 +11,12 @@ import {
 import { Loading } from "../Loading";
 
 import { EVENTS_FROM_WEB } from "../../helpers/types";
+import { globalWebViewMessageHandler } from "../../helpers/webviewCommunication";
+
 import {
 	sharedWebViewProps,
 	CustomWebViewProps,
-	globalWebViewMessageHandler,
-} from "./shared";
+} from "./sharedProps";
 
 const SCROLLVIEW_CONTAINER = {
 	flex: 1,
@@ -70,7 +71,7 @@ export default class CustomWebView extends React.Component<CustomWebViewProps, S
 		this.webView.current?.reload();
 
 	onWebViewMessage = async (e: WebViewMessageEvent) => {
-		const nativeEvent = await globalWebViewMessageHandler(this.props.onUserLoggedIn)(e);
+		const nativeEvent = await globalWebViewMessageHandler(this.props.customEvents, this.props.onCustomEvent)(e);
 
 		switch (nativeEvent.event) {
 			case EVENTS_FROM_WEB.SCROLL:

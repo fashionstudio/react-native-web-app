@@ -5,8 +5,9 @@ export declare type TOnPushRegistered = (values: {
     pushToken?: ExpoPushToken;
     error?: StructureError;
 }) => void;
-/** When user authenticates */
-export declare type TOnUserLoggedIn = (user?: any) => void;
+export declare type TCustomEvent = string | number;
+/** Handle Custom Events */
+export declare type TOnCustomEvent = (event: TCustomEvent, data: any) => void;
 export interface IAppProps {
     /** Website url */
     siteUrl: string;
@@ -23,5 +24,6 @@ export interface IAppProps {
      * */
     requestNotificationPermission?: boolean;
     onPushRegistered?: TOnPushRegistered;
-    onUserLoggedIn?: TOnUserLoggedIn;
+    customEvents?: TCustomEvent[];
+    onCustomEvent?: TOnCustomEvent;
 }

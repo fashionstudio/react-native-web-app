@@ -4,11 +4,13 @@ import { WebView as RNWebView } from "react-native-webview";
 import { requestTrackingPermissionsAsync } from "expo-tracking-transparency";
 
 import { Loading } from "../Loading";
+
+import { globalWebViewMessageHandler } from "../../helpers/webviewCommunication";
+
 import {
 	sharedWebViewProps,
 	CustomWebViewProps,
-	globalWebViewMessageHandler,
-} from "./shared";
+} from "./sharedProps";
 
 const CustomWebView: React.FC<CustomWebViewProps> = ({
 	webviewUrl,
@@ -17,7 +19,8 @@ const CustomWebView: React.FC<CustomWebViewProps> = ({
 	applePayEnabled,
 	customJSInjection,
 	paymentUrl,
-	onUserLoggedIn,
+	customEvents,
+	onCustomEvent,
 }) => {
 	const [webViewLoading, setWebViewLoading] = useState<boolean>(true);
 	const [wantsPrivacy, setPrivacyEnabled] = useState<boolean | "loading">("loading");
@@ -42,7 +45,7 @@ const CustomWebView: React.FC<CustomWebViewProps> = ({
 							source={{ uri: webviewUrl }}
 							enableApplePay={applePayEnabled}
 							thirdPartyCookiesEnabled={!wantsPrivacy}
-							onMessage={globalWebViewMessageHandler(onUserLoggedIn)}
+							onMessage={globalWebViewMessageHandler(customEvents, onCustomEvent)}
 							onLoadStart={({ nativeEvent: { url, navigationType } }) => {
 								setWebViewLoading(true);
 

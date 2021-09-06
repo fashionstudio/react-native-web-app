@@ -3,7 +3,8 @@ import { BackHandler, View, RefreshControl, ScrollView, } from "react-native";
 import { WebView as RNWebView, } from "react-native-webview";
 import { Loading } from "../Loading";
 import { EVENTS_FROM_WEB } from "../../helpers/types";
-import { sharedWebViewProps, globalWebViewMessageHandler, } from "./shared";
+import { globalWebViewMessageHandler } from "../../helpers/webviewCommunication";
+import { sharedWebViewProps, } from "./sharedProps";
 const SCROLLVIEW_CONTAINER = {
     flex: 1,
 };
@@ -28,7 +29,7 @@ export default class CustomWebView extends React.Component {
     }
     onRefresh = () => this.webView.current?.reload();
     onWebViewMessage = async (e) => {
-        const nativeEvent = await globalWebViewMessageHandler(this.props.onUserLoggedIn)(e);
+        const nativeEvent = await globalWebViewMessageHandler(this.props.customEvents, this.props.onCustomEvent)(e);
         switch (nativeEvent.event) {
             case EVENTS_FROM_WEB.SCROLL:
                 this.setState({ isPullToRefreshEnabled: nativeEvent.scrollTop === 0 });

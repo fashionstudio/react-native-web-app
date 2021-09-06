@@ -1,7 +1,6 @@
 import React from "react";
-import { WebViewMessageEvent, WebViewProps } from "react-native-webview";
-import { IEvent } from "../../helpers/types";
-import { TOnPushRegistered, TOnUserLoggedIn } from "../../types";
+import { WebViewProps } from "react-native-webview";
+import { TCustomEvent, TOnPushRegistered } from "../../types";
 export interface CustomWebViewProps {
     /** The url to load */
     webviewUrl: string;
@@ -16,8 +15,8 @@ export interface CustomWebViewProps {
     /** Should apple pay be enabled */
     applePayEnabled: boolean;
     onPushRegistered: TOnPushRegistered;
-    onUserLoggedIn: TOnUserLoggedIn;
+    customEvents: TCustomEvent[];
+    onCustomEvent: (event: TCustomEvent, data: any) => void;
 }
 /** Same props used for the android and ios webview */
 export declare const sharedWebViewProps: (customJSInjection: string) => Partial<WebViewProps>;
-export declare const globalWebViewMessageHandler: (onUserLoggedIn: TOnUserLoggedIn) => (e: WebViewMessageEvent) => Promise<IEvent>;
