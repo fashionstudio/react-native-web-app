@@ -5,7 +5,6 @@ export declare type TOnPushRegistered = (values: {
     pushToken?: ExpoPushToken;
     error?: StructureError;
 }) => void;
-export declare type TCustomEvent = string | number;
 /** Handle Custom Events */
 export declare type TOnCustomEvent<T = any> = (event: T, data: any) => void;
 export interface IAppProps<T = any> {

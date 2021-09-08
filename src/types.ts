@@ -7,9 +7,6 @@ export type TOnPushRegistered = (values: {
 	error?: StructureError
 }) => void;
 
-// TODO: use generics
-export type TCustomEvent = string | number;
-
 /** Handle Custom Events */
 export type TOnCustomEvent<T = any> = (event: T, data: any) => void;
 

@@ -44,6 +44,5 @@ Or read [this stackoverflow post][2]
 ## TODOs
 
 - [ ] Add ref
-- [ ] Add generic types
 - [ ] Format everything
 - [ ] Add complete doc
