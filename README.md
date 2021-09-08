@@ -27,7 +27,7 @@ enum CustomEvents {
 
 <AppStructure
     siteUrl="mysite.com"
-    paymentUrl="sberbank.ru"
+    paymentPattern="sberbank.ru"
 
     fontName="Courrier"
 
