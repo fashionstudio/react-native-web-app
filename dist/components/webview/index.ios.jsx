@@ -7,7 +7,7 @@ import { globalWebViewMessageHandler } from "../../helpers/webviewCommunication"
 import { StructureContext } from "../../helpers/context";
 import { sharedWebViewProps, } from "./sharedProps";
 const CustomWebView = ({ webviewUrl, setWebviewUrl, reloadWebView, applePayEnabled, }) => {
-    const { customJSInjection, customEvents, paymentUrl, onCustomEvent, } = useContext(StructureContext);
+    const { customJSInjection, customEvents, paymentPattern, onCustomEvent, } = useContext(StructureContext);
     const [webViewLoading, setWebViewLoading] = useState(true);
     const [wantsPrivacy, setPrivacyEnabled] = useState("loading");
     const WebViewRef = useRef(null);
@@ -27,7 +27,9 @@ const CustomWebView = ({ webviewUrl, setWebviewUrl, reloadWebView, applePayEnabl
                     if (navigationType === "formsubmit" || navigationType === "formresubmit")
                         return;
                     setWebviewUrl(url);
-                    const isPaymentStep = url.includes(paymentUrl);
+                    const isPaymentStep = paymentPattern instanceof RegExp
+                        ? paymentPattern.test(url)
+                        : url.includes(paymentPattern);
                     // enable apple pay on payment step
                     if (isPaymentStep && !applePayEnabled)
                         reloadWebView(true);

@@ -1,6 +1,6 @@
 export const defaultProps = {
     siteUrl: "",
-    paymentUrl: "sberbank.ru",
+    paymentPattern: "sberbank.ru",
     requestNotificationPermission: false,
     onPushRegistered: () => { },
     customEvents: [],

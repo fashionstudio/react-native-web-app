@@ -2,7 +2,7 @@ import { IAppProps } from "../types";
 
 export const defaultProps: IAppProps = {
 	siteUrl: "",
-	paymentUrl: "sberbank.ru",
+	paymentPattern: "sberbank.ru",
 
 	requestNotificationPermission: false,
 	onPushRegistered: () => {},

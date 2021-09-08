@@ -24,7 +24,7 @@ const CustomWebView: React.FC<ICustomWebViewProps> = ({
 	const {
 		customJSInjection,
 		customEvents,
-		paymentUrl,
+		paymentPattern,
 		onCustomEvent,
 	} = useContext(StructureContext);
 
@@ -61,7 +61,9 @@ const CustomWebView: React.FC<ICustomWebViewProps> = ({
 
 								setWebviewUrl(url);
 
-								const isPaymentStep: boolean = url.includes(paymentUrl!);
+								const isPaymentStep: boolean = paymentPattern instanceof RegExp
+									? paymentPattern.test(url)
+									: url.includes(paymentPattern!);
 
 								// enable apple pay on payment step
 								if (isPaymentStep && !applePayEnabled)

@@ -12,7 +12,7 @@
     "watch-build": "tsc --watch",
     "build": "tsc",
     "recreate-build": "npx rimraf ./dist && yarn build",
-    "precommit": "yarn build"
+    "precommit": "yarn recreate-build"
   },
   "repository": {
     "type": "git",

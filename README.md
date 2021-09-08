@@ -8,7 +8,7 @@ This is made for Fashion Studio's apps.
 
 It supports:
 - [ ] Tracking Transparency
-- [ ] Custom Events (like user authentication)
+- [x] Custom Events (like user authentication)
 - [x] Apple Pay
 - [x] Push Notifications
 - [x] Offline mode
@@ -18,7 +18,44 @@ It supports:
 
 ## Code Samples
 
-> You've gotten their attention in the introduction, now show a few code examples. So they get a visualization and as a bonus, make them copy/paste friendly.
+```tsx
+enum CustomEvents {
+    USER_LOGGED_IN = 'USER_LOGGED_IN',
+    USER_LOGGED_OUT = 'USER_LOGGED_OUT'
+}
+
+
+<AppStructure
+    siteUrl="mysite.com"
+    paymentUrl="sberbank.ru"
+
+    fontName="Courrier"
+
+    requestNotificationPermission={true}
+    onPushRegistered={({ pushToken, error }) => {
+        if (error)
+            return console.error("Error while push registration:", error);
+
+        console.log("new push token", pushToken)
+    }}
+
+    customJSInjection={`
+        setTimeout(() => {
+        window.ReactNativeWebView.postMessage(
+            JSON.stringify({
+                event: "${CustomEvents.USER_LOGGED_IN}",
+                jwt_token: "test123"
+            })
+        )
+        }, 5000);
+    `}
+
+    customEvents={enumToArray(CustomEvents)}
+    onCustomEvent={(event, data) => {
+        console.log("Custom event", event, "with data", data);
+    }}
+/>
+```
 
 ## Installation
 
@@ -43,6 +80,5 @@ Or read [this stackoverflow post][2]
 
 ## TODOs
 
-- [ ] Add ref
-- [ ] Format everything
+- [ ] Refactor & format everything
 - [ ] Add complete doc
