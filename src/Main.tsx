@@ -34,7 +34,7 @@ export const Main: React.FC = () => {
 		if (!props.requestNotificationPermission)
 			return;
 
-		handlePushRegistration(props.onPushRegistered);
+		handlePushRegistration(props.onPushRegistered!);
 	}, [props.requestNotificationPermission]);
 
 	if (loading)

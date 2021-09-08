@@ -51,7 +51,7 @@ const CustomWebView: React.FC<ICustomWebViewProps> = ({
 							source={{ uri: webviewUrl }}
 							enableApplePay={applePayEnabled}
 							thirdPartyCookiesEnabled={!wantsPrivacy}
-							onMessage={globalWebViewMessageHandler(customEvents, onCustomEvent)}
+							onMessage={globalWebViewMessageHandler(customEvents!, onCustomEvent!)}
 							onLoadStart={({ nativeEvent: { url, navigationType } }) => {
 								setWebViewLoading(true);
 
@@ -61,7 +61,7 @@ const CustomWebView: React.FC<ICustomWebViewProps> = ({
 
 								setWebviewUrl(url);
 
-								const isPaymentStep: boolean = url.includes(paymentUrl);
+								const isPaymentStep: boolean = url.includes(paymentUrl!);
 
 								// enable apple pay on payment step
 								if (isPaymentStep && !applePayEnabled)
@@ -73,7 +73,7 @@ const CustomWebView: React.FC<ICustomWebViewProps> = ({
 							}}
 							onLoadEnd={() =>
 								setWebViewLoading(false)}
-							{...sharedWebViewProps(customJSInjection)}
+							{...sharedWebViewProps(customJSInjection!)}
 						/>
 					</>
 				)}

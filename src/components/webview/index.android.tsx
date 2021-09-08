@@ -76,8 +76,8 @@ export class CustomWebView extends React.Component<ICustomWebViewProps, State> {
 	onWebViewMessage = async (e: WebViewMessageEvent) => {
 		const { customEvents, onCustomEvent } = this.context;
 		const nativeEvent = await globalWebViewMessageHandler(
-			customEvents,
-			onCustomEvent,
+			customEvents!,
+			onCustomEvent!,
 		)(e);
 
 		switch (nativeEvent.event) {
@@ -136,7 +136,7 @@ export class CustomWebView extends React.Component<ICustomWebViewProps, State> {
 						onLoadStart={() => { this.setState({ loading: true }); }}
 						onLoadEnd={() =>
 							this.setState({ loading: false })}
-						{...sharedWebViewProps(customJSInjection)}
+						{...sharedWebViewProps(customJSInjection!)}
 					/>
 				</ScrollView>
 			</View>

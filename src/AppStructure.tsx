@@ -13,7 +13,7 @@ LogBox.ignoreLogs(["in Reanimated 2"]);
 
 // TODO: add ref with functions and stateful values
 /** Main App constructor */
-export const AppStructure: React.FC<IAppProps & typeof defaultProps> = (props) =>
+export const AppStructure: React.FC<IAppProps> = (props) =>
 	(
 		<StructureContext.Provider value={props}>
 			<NetworkProvider>

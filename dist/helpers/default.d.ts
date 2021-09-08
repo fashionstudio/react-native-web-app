@@ -1,2 +1,2 @@
 import { IAppProps } from "../types";
-export declare const defaultProps: Required<IAppProps>;
+export declare const defaultProps: IAppProps;

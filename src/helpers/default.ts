@@ -1,6 +1,6 @@
 import { IAppProps } from "../types";
 
-export const defaultProps: Required<IAppProps> = {
+export const defaultProps: IAppProps = {
 	siteUrl: "",
 	paymentUrl: "sberbank.ru",
 
