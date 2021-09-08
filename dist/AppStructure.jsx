@@ -9,7 +9,8 @@ import { defaultProps } from "./helpers/default";
 LogBox.ignoreLogs(["in Reanimated 2"]);
 // TODO: add ref with functions and stateful values
 /** Main App constructor */
-export const AppStructure = (props) => (<StructureContext.Provider value={props}>
+export function AppStructure(props) {
+    return (<StructureContext.Provider value={props}>
 			<NetworkProvider>
 				<SafeAreaView style={{ flex: 1 }} forceInset={{ bottom: "never" }}>
 					<StatusBar barStyle="dark-content" backgroundColor="white"/>
@@ -17,5 +18,6 @@ export const AppStructure = (props) => (<StructureContext.Provider value={props}
 				</SafeAreaView>
 			</NetworkProvider>
 		</StructureContext.Provider>);
+}
 AppStructure.defaultProps = defaultProps;
 export default AppStructure;
