@@ -11,9 +11,9 @@ export type TOnPushRegistered = (values: {
 export type TCustomEvent = string | number;
 
 /** Handle Custom Events */
-export type TOnCustomEvent = (event: TCustomEvent, data: any) => void;
+export type TOnCustomEvent<T = any> = (event: T, data: any) => void;
 
-export interface IAppProps {
+export interface IAppProps<T = any> {
 	/** Website url */
 	siteUrl: string;
 
@@ -36,8 +36,8 @@ export interface IAppProps {
 	// EVENTS
 	onPushRegistered?: TOnPushRegistered;
 
-	customEvents?: TCustomEvent[];
+	customEvents?: T[];
 
-	onCustomEvent?: TOnCustomEvent;
+	onCustomEvent?: TOnCustomEvent<T>;
 
 }

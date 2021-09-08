@@ -1,4 +1,4 @@
 import { WebViewMessageEvent } from "react-native-webview";
-import { TCustomEvent, TOnCustomEvent } from "../types";
+import { TOnCustomEvent } from "../types";
 import { IEvent } from "./types";
-export declare const globalWebViewMessageHandler: (customEvents: TCustomEvent[], onCustomEvent: TOnCustomEvent) => (e: WebViewMessageEvent) => Promise<IEvent>;
+export declare const globalWebViewMessageHandler: <T = any>(customEvents: T[], onCustomEvent: TOnCustomEvent<T>) => (e: WebViewMessageEvent) => Promise<IEvent>;

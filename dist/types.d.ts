@@ -7,8 +7,8 @@ export declare type TOnPushRegistered = (values: {
 }) => void;
 export declare type TCustomEvent = string | number;
 /** Handle Custom Events */
-export declare type TOnCustomEvent = (event: TCustomEvent, data: any) => void;
-export interface IAppProps {
+export declare type TOnCustomEvent<T = any> = (event: T, data: any) => void;
+export interface IAppProps<T = any> {
     /** Website url */
     siteUrl: string;
     /** Payment url to enable apple pay when on payment step. Default **sberbank.ru** */
@@ -24,6 +24,6 @@ export interface IAppProps {
      * */
     requestNotificationPermission?: boolean;
     onPushRegistered?: TOnPushRegistered;
-    customEvents?: TCustomEvent[];
-    onCustomEvent?: TOnCustomEvent;
+    customEvents?: T[];
+    onCustomEvent?: TOnCustomEvent<T>;
 }
