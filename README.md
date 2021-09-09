@@ -81,4 +81,3 @@ Or read [this stackoverflow post][2]
 ## TODOs
 
 - [ ] Refactor & format everything
-- [ ] Add complete doc
