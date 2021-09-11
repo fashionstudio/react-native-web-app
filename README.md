@@ -1,8 +1,10 @@
 # React Native Web App
 
-Our docs are now on [our wiki](https://github.com/fashionstudio/react-native-web-app/wiki)
+### Looking for our documentation ?
 
-## Code Sample
+Our docs are hosted now on [our wiki](https://github.com/fashionstudio/react-native-web-app/wiki)
+
+### Code Sample
 
 ```tsx
 enum CustomEvents {
