@@ -13,7 +13,8 @@
     "build": "tsc",
     "recreate-build": "npx rimraf ./dist && yarn build",
     "prepublish": "yarn recreate-build",
-    "do-publish": "npm publish --access public"
+    "release": "npx standard-version",
+    "npm-publish": "npm publish --access public"
   },
   "repository": {
     "type": "git",
