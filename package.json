@@ -24,7 +24,15 @@
     "url": "https://github.com/fashionstudio/react-native-web-app/issues"
   },
   "homepage": "https://github.com/fashionstudio/react-native-web-app/wiki",
-  "keywords": [],
+  "keywords": [
+    "android",
+    "ios",
+    "react-native",
+    "expo",
+    "webview",
+    "webapp",
+    "native-apps"
+  ],
   "devDependencies": {
     "@types/react": "^17.0.19",
     "@types/react-native": "^0.64.13",

@@ -1,8 +1,8 @@
 # React Native Web App
 
-### Looking for our documentation ?
+## Looking for our documentation ?
 
-Our docs are hosted now on [our wiki](https://github.com/fashionstudio/react-native-web-app/wiki)
+Our docs are now hosted on [our wiki](https://github.com/fashionstudio/react-native-web-app/wiki)
 
 ### Code Sample
 
