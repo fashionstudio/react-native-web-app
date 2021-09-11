@@ -1,6 +1,6 @@
 {
   "name": "react-native-web-app",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Easily create apps using web views",
   "author": "Johann Buscail <johann@buscail.eu> (https://github.com/johannb75)",
   "license": "MIT",
@@ -14,7 +14,7 @@
     "recreate-build": "npx rimraf ./dist && yarn build",
     "prepublish": "yarn recreate-build",
     "release": "npx standard-version",
-    "npm-publish": "npm publish --access public"
+    "npm-publish": "git push --follow-tags origin master && npm publish"
   },
   "repository": {
     "type": "git",
