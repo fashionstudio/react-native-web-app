@@ -13,7 +13,7 @@ LogBox.ignoreLogs(["in Reanimated 2"]);
 
 // TODO: add ref with functions and stateful values
 /** Main App constructor */
-export function AppStructure<T>(props: IAppProps<T>) {
+export function WebApp<T>(props: IAppProps<T>) {
 	return (
 		<StructureContext.Provider value={props}>
 			<NetworkProvider>
@@ -26,6 +26,6 @@ export function AppStructure<T>(props: IAppProps<T>) {
 	);
 }
 
-AppStructure.defaultProps = defaultProps;
+WebApp.defaultProps = defaultProps;
 
-export default AppStructure;
+export default WebApp;

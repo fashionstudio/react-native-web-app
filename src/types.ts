@@ -52,7 +52,7 @@ export interface IAppProps<T = any> {
 	 *		USER_LOGGED_OUT = 'USER_LOGGED_OUT'
 	 *	}
 	 *
-	 * <AppStructure customEvents={enumToArray(CustomEvents)} />
+	 * <WebApp customEvents={enumToArray(CustomEvents)} />
 	 * ```
 	 * */
 	customEvents?: T[];

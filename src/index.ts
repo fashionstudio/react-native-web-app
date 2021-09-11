@@ -1,2 +1,2 @@
-export { AppStructure } from "./AppStructure";
+export { WebApp } from "./WebApp";
 export { enumToArray } from "./helpers/enums";
