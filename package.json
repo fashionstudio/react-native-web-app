@@ -1,8 +1,8 @@
 {
-  "name": "app-structure",
+  "name": "react-native-web-app",
   "version": "1.0.0",
   "description": "Easily create apps using web views",
-  "author": "Johann Buscail <johann@buscail.ey> (https://github.com/johannb75)",
+  "author": "Johann Buscail <johann@buscail.eu> (https://github.com/johannb75)",
   "license": "MIT",
   "main": "dist/index.js",
   "files": [
@@ -12,16 +12,17 @@
     "watch-build": "tsc --watch",
     "build": "tsc",
     "recreate-build": "npx rimraf ./dist && yarn build",
-    "precommit": "yarn recreate-build"
+    "prepublish": "yarn recreate-build",
+    "do-publish": "npm publish --access public"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fashionstudio/app-structure.git"
+    "url": "git+https://github.com/fashionstudio/react-native-web-app.git"
   },
   "bugs": {
-    "url": "https://github.com/fashionstudio/app-structure/issues"
+    "url": "https://github.com/fashionstudio/react-native-web-app/issues"
   },
-  "homepage": "https://github.com/fashionstudio/app-structure#readme",
+  "homepage": "https://github.com/fashionstudio/react-native-web-app#readme",
   "keywords": [],
   "devDependencies": {
     "@types/react": "^17.0.19",
