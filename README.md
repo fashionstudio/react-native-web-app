@@ -1,32 +1,8 @@
 # React Native Web App
 
-## Installation
+Our docs are now on [our wiki](https://github.com/fashionstudio/react-native-web-app/wiki)
 
-```
-yarn add react-native-web-app
-```
-or
-```
-npm i react-native-web-app
-```
-
-## Introduction
-
-Instead of repeating over and over the same process of creating an app using a web view, this library does everything for you. Only import it and pass in options.
-
-This is made for Fashion Studio's apps.
-
-It supports:
-- [ ] Tracking Transparency
-- [x] Custom Events (like user authentication)
-- [x] Apple Pay
-- [x] Push Notifications
-- [x] Offline mode
-- [x] Custom font
-- [x] Loading screen
-- [x] Typings
-
-## Code Samples
+## Code Sample
 
 ```tsx
 enum CustomEvents {
@@ -66,7 +42,3 @@ enum CustomEvents {
     }}
 />
 ```
-
-## TODOs
-
-- [ ] Refactor & format everything

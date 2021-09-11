@@ -23,7 +23,7 @@
   "bugs": {
     "url": "https://github.com/fashionstudio/react-native-web-app/issues"
   },
-  "homepage": "https://github.com/fashionstudio/react-native-web-app#readme",
+  "homepage": "https://github.com/fashionstudio/react-native-web-app/wiki",
   "keywords": [],
   "devDependencies": {
     "@types/react": "^17.0.19",
