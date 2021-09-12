@@ -17,13 +17,22 @@ export interface ICustomWebViewProps {
 	applePayEnabled: boolean;
 }
 
-/** Same props used for the android and ios webview */
-export const sharedWebViewProps = (customJSInjection: string): Partial<WebViewProps> =>
+/**
+ * Shared props passed for the android and ios webview
+ * @param customJSInjection Custom JS code when website loads
+ * @param wantsPrivacy Whether or not the user enabled tracking
+ * @returns Props
+ */
+export const sharedWebViewProps = (customJSInjection: string, wantsPrivacy: boolean): Partial<WebViewProps> =>
 	({
 		allowsInlineMediaPlayback: true,
 		allowsBackForwardNavigationGestures: true,
 		pullToRefreshEnabled: true,
 		domStorageEnabled: true,
 		autoManageStatusBarEnabled: false,
-		injectedJavaScript: INJECTED_JS + customJSInjection,
+		injectedJavaScript: `
+			${INJECTED_JS}
+			${customJSInjection}
+			const wantsPrivacy = ${wantsPrivacy};
+		`,
 	});

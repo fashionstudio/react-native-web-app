@@ -75,7 +75,7 @@ const CustomWebView: React.FC<ICustomWebViewProps> = ({
 							}}
 							onLoadEnd={() =>
 								setWebViewLoading(false)}
-							{...sharedWebViewProps(customJSInjection!)}
+							{...sharedWebViewProps(customJSInjection!, wantsPrivacy)}
 						/>
 					</>
 				)}
