@@ -10,6 +10,9 @@
       "url": "http://www.apache.org/licenses/LICENSE-2.0"
     }
   ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
   "main": "dist/index.js",
   "files": [
     "dist"
