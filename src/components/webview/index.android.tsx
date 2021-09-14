@@ -136,7 +136,7 @@ export class CustomWebView extends React.Component<ICustomWebViewProps, State> {
 						onLoadStart={() => { this.setState({ loading: true }); }}
 						onLoadEnd={() =>
 							this.setState({ loading: false })}
-						{...sharedWebViewProps(customJSInjection!)}
+						{...sharedWebViewProps(customJSInjection!, false)}
 					/>
 				</ScrollView>
 			</View>
