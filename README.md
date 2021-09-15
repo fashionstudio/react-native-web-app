@@ -9,14 +9,14 @@
 [![GitHub license](https://img.shields.io/github/license/fashionstudio/react-native-web-app)](https://github.com/fashionstudio/react-native-web-app/blob/master/LICENSE)
 
 ## Features
-- Tracking Transparency
-- Custom Events (like user authentication)
-- Apple Pay
-- Push Notifications
-- Offline mode
+- Tracking Transparency 🔒
+- 📅 Custom Events (like user authentication)
+- Apple Pay 💳
+- Push Notifications 🔔
+- 📴 Offline mode
 - Custom font
-- Loading screen
-- Complete typing system
+- Loading screen ⌛
+- 🤗 Complete typing system
 
 ## Documentation
 
