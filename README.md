@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://github.com/fashionstudio/react-native-web-app" >
-    <img src="https://github.com/fashionstudio/react-native-web-app/blob/master/assets/logo-neon.svg" alt="React Native Web App" height="400"/>
+    <img src="https://github.com/fashionstudio/react-native-web-app/blob/master/assets/logo-orange.svg" alt="React Native Web App" height="400"/>
   </a>
 </p>
 
