@@ -22,11 +22,11 @@
 
 The documentation is available on [our wiki](https://github.com/fashionstudio/react-native-web-app/wiki).
 
-- [Home](https://github.com/fashionstudio/react-native-web-app/wiki)
-- [Installation](https://github.com/fashionstudio/react-native-web-app/wiki/1.-Installation)
-- [Quick Start](https://github.com/fashionstudio/react-native-web-app/wiki/2.-Quick-Start)
-- [Props](https://github.com/fashionstudio/react-native-web-app/wiki/3.-Props)
-- [Complete Example](https://github.com/fashionstudio/react-native-web-app/wiki/4.-Complete-Example)
+[Home](https://github.com/fashionstudio/react-native-web-app/wiki)
+[Installation](https://github.com/fashionstudio/react-native-web-app/wiki/1.-Installation)
+[Quick Start](https://github.com/fashionstudio/react-native-web-app/wiki/2.-Quick-Start)
+[Props](https://github.com/fashionstudio/react-native-web-app/wiki/3.-Props)
+[Complete Example](https://github.com/fashionstudio/react-native-web-app/wiki/4.-Complete-Example)
 
 ## Contributing
 Read our [contributing guide](https://github.com/fashionstudio/react-native-web-app/blob/master/CONTRIBUTING.md) to learn about our development process, how to propose bugfixes and improvements, and how to build and test your changes to React Native Web App. <br>
