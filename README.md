@@ -40,4 +40,4 @@ Read our [contributing guide](https://github.com/fashionstudio/react-native-web-
 
 
 ## License
-React Native Web App © 2022, released under the Apache License v2.0.
+React Native Web App © 2021, released under the Apache License v2.0.
