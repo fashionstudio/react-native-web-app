@@ -18,7 +18,7 @@ Add a comment on the issue and wait for the issue to be assigned before you star
 ## We Use [Github Flow](https://guides.github.com/introduction/flow/index.html), So All Code Changes Happen Through Pull Requests
 Pull requests are the best way to propose changes to the codebase (we use [Git-Flow](https://nvie.com/posts/a-successful-git-branching-model/)). We actively welcome your pull requests:
 
-1. Fork the repo and create your branch from `develop`. Please create the branch in the format feature/<issue-id>-<issue-name> (eg: feature/176-chart-widget)
+1. Fork the repo and create your branch from `master`. Please create the branch in the format feature/<issue-id>-<issue-name> (eg: feature/176-chart-widget)
 2. If you've added code that should be tested, add tests.
 3. If you've changed APIs, update the documentation.
 5. Make sure your code lints.
