@@ -29,8 +29,8 @@ The documentation is available on [our wiki](https://github.com/fashionstudio/re
 - [Complete Example](https://github.com/fashionstudio/react-native-web-app/wiki/4.-Complete-Example)
 
 ## Contributing
-Read our contributing guide (CONTRIBUTING.md) to learn about our development process, how to propose bugfixes and improvements, and how to build and test your changes to ToolJet. <br>
-[Contributing Guide](https://github.com/fashionstudio/react-native-web-app/blob/master/CONTRIBUTING.md)
+Read our [contributing guide](https://github.com/fashionstudio/react-native-web-app/blob/master/CONTRIBUTING.md) to learn about our development process, how to propose bugfixes and improvements, and how to build and test your changes to React Native Web App. <br>
+
 
 ## Licence
 React Native Web App © 2022, Released under the Apache License v2.0.
