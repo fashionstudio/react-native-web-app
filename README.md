@@ -30,7 +30,7 @@ The documentation is available on [our wiki](https://github.com/fashionstudio/re
 
 ## Contributing
 Read our contributing guide (CONTRIBUTING.md) to learn about our development process, how to propose bugfixes and improvements, and how to build and test your changes to ToolJet. <br>
-[Contributing Guide]()
+[Contributing Guide](https://github.com/fashionstudio/react-native-web-app/blob/master/CONTRIBUTING.md)
 
 ## Licence
 React Native Web App © 2022, Released under the Apache License v2.0.
