@@ -12,7 +12,6 @@ const styles = StyleSheet.create({
 		marginTop: 25,
 		borderRadius: 50,
 		width: 200,
-		backgroundColor: "#583d72",
 		padding: 10,
 	},
 	btnText: {
@@ -23,7 +22,11 @@ const styles = StyleSheet.create({
 });
 
 const NoInternet: React.FC = () => {
-	const { fontName: fontFamily, offlineText } = useContext(StructureContext);
+	const {
+		fontName: fontFamily,
+		offlineText,
+		themeColor,
+	} = useContext(StructureContext);
 
 	return (
 		<SafeAreaView
@@ -32,7 +35,12 @@ const NoInternet: React.FC = () => {
 			<Text style={{ fontFamily, fontSize: 18 }}>
 				{offlineText?.message}
 			</Text>
-			<TouchableOpacity style={styles.button}>
+			<TouchableOpacity
+				style={[
+					styles.button,
+					{ backgroundColor: themeColor },
+				]}
+			>
 				<Text style={[{ ...styles.btnText }, { fontFamily }]}>
 					{offlineText?.message}
 				</Text>

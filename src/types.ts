@@ -27,6 +27,12 @@ export interface IAppProps<T = any> {
 	fontName?: string;
 
 	/**
+	 * Theme color.\
+	 * Default value: **#583d72**
+	 */
+	themeColor?: string;
+
+	/**
 	 * Custom text to show when the user is offline.\
 	 * **Default:**
 	 * ```json
