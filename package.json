@@ -1,6 +1,6 @@
 {
   "name": "react-native-web-app",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "Easily create apps using web views",
   "author": "Johann Buscail <johann@buscail.eu> (https://github.com/johannb75)",
   "license": "Apache-2.0",
@@ -12,6 +12,11 @@
   ],
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
+  },
+  "standard-version": {
+    "skip": {
+      "tag": true
+    }
   },
   "main": "dist/index.js",
   "files": [

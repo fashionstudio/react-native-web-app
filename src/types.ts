@@ -26,6 +26,21 @@ export interface IAppProps<T = any> {
 	 * */
 	fontName?: string;
 
+	/**
+	 * Custom text to show when the user is offline.\
+	 * **Default:**
+	 * ```json
+	 * {
+	 *		"message": "Вы не подключены к Интернету.",
+	 *		"refreshButton": "Обновить",
+	 * }
+	 * ```
+	 */
+	offlineText?: {
+		message?: string;
+		refreshButton?: string;
+	}
+
 	/** Custom injected javascript when the site is loading */
 	customJSInjection?: string;
 

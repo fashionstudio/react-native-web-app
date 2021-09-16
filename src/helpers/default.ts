@@ -12,4 +12,8 @@ export const defaultProps: IAppProps = {
 
 	customJSInjection: "",
 	fontName: "custom",
+	offlineText: {
+		message: "Вы не подключены к Интернету.",
+		refreshButton: "Обновить",
+	},
 };
