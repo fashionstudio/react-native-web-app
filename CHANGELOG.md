@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/fashionstudio/react-native-web-app/compare/v1.1.1...v1.3.0) (2021-09-16)
+
+
+### Features
+
+* **offline:** allow custom text when user is offline ([d85e038](https://github.com/fashionstudio/react-native-web-app/commit/d85e038d5b4dee798db2a8e7dce2b01fc2795324))
+
+
+### Bug Fixes
+
+* **versioning:** resloved conflict between git flow and standard version ([7801420](https://github.com/fashionstudio/react-native-web-app/commit/7801420415303b951a81d10437fe7782cfab13d4))
+
 ## [1.2.0](https://github.com/fashionstudio/react-native-web-app/compare/v1.1.1...v1.2.0) (2021-09-16)
 
 
