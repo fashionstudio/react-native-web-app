@@ -23,18 +23,18 @@ const styles = StyleSheet.create({
 });
 
 const NoInternet: React.FC = () => {
-	const { fontName: fontFamily } = useContext(StructureContext);
+	const { fontName: fontFamily, offlineText } = useContext(StructureContext);
 
 	return (
 		<SafeAreaView
 			style={{ flex: 1, alignItems: "center", justifyContent: "center" }}
 		>
 			<Text style={{ fontFamily, fontSize: 18 }}>
-				Вы не подключены к Интернету.
+				{offlineText?.message}
 			</Text>
 			<TouchableOpacity style={styles.button}>
 				<Text style={[{ ...styles.btnText }, { fontFamily }]}>
-					Обновить
+					{offlineText?.message}
 				</Text>
 			</TouchableOpacity>
 		</SafeAreaView>
