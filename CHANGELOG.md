@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.6](https://github.com/fashionstudio/react-native-web-app/compare/v1.1.5...v1.1.6) (2021-09-16)
+
+
+### Bug Fixes
+
+* **version:** set correct version ([49adc0f](https://github.com/fashionstudio/react-native-web-app/commit/49adc0fbd2fd2cf07be60826b6ed67a77b1fe637))
+
 ## [1.3.0](https://github.com/fashionstudio/react-native-web-app/compare/v1.1.1...v1.3.0) (2021-09-16)
 
 
