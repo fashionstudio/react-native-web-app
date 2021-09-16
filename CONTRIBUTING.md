@@ -18,7 +18,7 @@ Add a comment on the issue and wait for the issue to be assigned before you star
 ## We Use [Github Flow](https://guides.github.com/introduction/flow/index.html), So All Code Changes Happen Through Pull Requests
 Pull requests are the best way to propose changes to the codebase (we use [Git-Flow](https://nvie.com/posts/a-successful-git-branching-model/)). We actively welcome your pull requests:
 
-1. Fork the repo and create your branch from `master`. Please create the branch in the format feature/<issue-id>-<issue-name> (eg: feature/176-chart-widget)
+1. Fork the repo and create your branch from `develop`. Please create the branch in the format feature/<issue-id>-<issue-name> (eg: feature/176-chart-widget)
 2. If you've added code that should be tested, add tests.
 3. If you've changed APIs, update the documentation.
 5. Make sure your code lints.
@@ -27,7 +27,7 @@ Pull requests are the best way to propose changes to the codebase (we use [Git-F
 ## Any contributions you make will be under the Apache-2.0 License
 In short, when you submit code changes, your submissions are understood to be under the same [Apache-2.0 License](https://www.apache.org/licenses/LICENSE-2.0) that covers the project.
 
-## Report bugs using Github's [issues](https://github.com/ToolJet/ToolJet/issues)
+## Report bugs using Github's [issues](https://github.com/fashionstudio/react-native-web-app/issues)
 We use GitHub issues to track public bugs. Report a bug by [opening a new issue](); it's that easy!
 
 **Great Bug Reports** tend to have:
