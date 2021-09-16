@@ -16,4 +16,5 @@ export const defaultProps: IAppProps = {
 		message: "Вы не подключены к Интернету.",
 		refreshButton: "Обновить",
 	},
+	themeColor: "#583d72",
 };
