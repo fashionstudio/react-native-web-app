@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/fashionstudio/react-native-web-app/compare/v1.1.6...v1.2.0) (2021-09-16)
+
+
+### Features
+
+* add custom theme ([88b3ef2](https://github.com/fashionstudio/react-native-web-app/commit/88b3ef20db1a15002f0fd8c20996fc72df77044b))
+
 ### [1.1.6](https://github.com/fashionstudio/react-native-web-app/compare/v1.1.5...v1.1.6) (2021-09-16)
 
 
