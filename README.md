@@ -33,6 +33,7 @@ The documentation is available on [our wiki](https://github.com/fashionstudio/re
 [Installation](https://github.com/fashionstudio/react-native-web-app/wiki/1.-Installation)\
 [Quick Start](https://github.com/fashionstudio/react-native-web-app/wiki/2.-Quick-Start)\
 [Props](https://github.com/fashionstudio/react-native-web-app/wiki/3.-Props)\
+[Constants to use on the website](https://github.com/fashionstudio/react-native-web-app/wiki/4.-Constants-to-use-on-the-website)\
 [Complete Example](https://github.com/fashionstudio/react-native-web-app/wiki/4.-Complete-Example)
 
 ## Contributing
