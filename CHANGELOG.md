@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/fashionstudio/react-native-web-app/compare/v1.1.7...v1.3.0) (2021-09-18)
+
+
+### Features
+
+* support custom offline screen options and component ([f8badc3](https://github.com/fashionstudio/react-native-web-app/commit/f8badc3497e59b914f095bb8a4a294d98f447ec4))
+
+
+### Bug Fixes
+
+* **version:** rename ([d0d30f9](https://github.com/fashionstudio/react-native-web-app/commit/d0d30f9b963e9416bc812c1ad2c02d75d26f0217))
+* **version:** rename ([2a041ef](https://github.com/fashionstudio/react-native-web-app/commit/2a041ef106a3cea00c384930f5c1c014638e6958))
+
 ## [1.2.0](https://github.com/fashionstudio/react-native-web-app/compare/v1.1.6...v1.2.0) (2021-09-16)
 
 
