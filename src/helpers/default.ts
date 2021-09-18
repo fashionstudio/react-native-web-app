@@ -1,4 +1,5 @@
 import { IAppProps } from "../types";
+import NoInternet from "../components/NoInternet";
 
 export const defaultProps: IAppProps = {
 	siteUrl: "",
@@ -11,10 +12,15 @@ export const defaultProps: IAppProps = {
 	onCustomEvent: () => {},
 
 	customJSInjection: "",
-	fontName: "custom",
-	offlineText: {
+
+	offlineScreenOptions: {
 		message: "Вы не подключены к Интернету.",
-		refreshButton: "Обновить",
+		fontName: "custom",
+		refreshButton: {
+			text: "Обновить",
+			textColor: "white",
+			backgroundColor: "#583d72",
+		},
 	},
-	themeColor: "#583d72",
+	offlineScreenComponent: NoInternet,
 };

@@ -12,7 +12,10 @@ import { StructureContext } from "./helpers/context";
 const CustomWebView: React.FC<ICustomWebViewProps> = require("./components/webview").default;
 
 export const Main: React.FC = () => {
-	const props = useContext(StructureContext);
+	const {
+		offlineScreenComponent: OfflineScreenComponent = NoInternet,
+		...props
+	} = useContext(StructureContext);
 
 	const [loading, setLoading] = useState<boolean>(true);
 	const [webviewUrl, setWebviewUrl] = useState<string>(props.siteUrl);
@@ -41,7 +44,7 @@ export const Main: React.FC = () => {
 		return <Loading />;
 
 	if (!isConnected)
-		return <NoInternet />;
+		return <OfflineScreenComponent />;
 
 	return (
 		<CustomWebView
