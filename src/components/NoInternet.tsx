@@ -16,33 +16,32 @@ const styles = StyleSheet.create({
 	},
 	btnText: {
 		fontSize: 15,
-		color: "white",
 		textAlign: "center",
 	},
 });
 
 const NoInternet: React.FC = () => {
-	const {
-		fontName: fontFamily,
-		offlineText,
-		themeColor,
-	} = useContext(StructureContext);
+	const { offlineScreenOptions: offlineScreen } = useContext(StructureContext);
+
+	const { refreshButton, fontName: fontFamily, message } = offlineScreen!;
 
 	return (
-		<SafeAreaView
-			style={{ flex: 1, alignItems: "center", justifyContent: "center" }}
-		>
+		<SafeAreaView style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
 			<Text style={{ fontFamily, fontSize: 18 }}>
-				{offlineText?.message}
+				{message}
 			</Text>
 			<TouchableOpacity
-				style={[
-					styles.button,
-					{ backgroundColor: themeColor },
-				]}
+				style={[styles.button, {
+					backgroundColor: refreshButton?.backgroundColor,
+				}]}
 			>
-				<Text style={[{ ...styles.btnText }, { fontFamily }]}>
-					{offlineText?.message}
+				<Text
+					style={[styles.btnText, {
+						fontFamily,
+						color: refreshButton?.textColor,
+					}]}
+				>
+					{refreshButton?.text}
 				</Text>
 			</TouchableOpacity>
 		</SafeAreaView>

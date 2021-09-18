@@ -1,3 +1,4 @@
+import React from "react";
 import { ExpoPushToken } from "expo-notifications";
 import { StructureError } from "./helpers/errors";
 
@@ -10,6 +11,42 @@ export type TOnPushRegistered = (values: {
 /** Handle Custom Events */
 export type TOnCustomEvent<T = any> = (event: T, data: any) => void;
 
+export interface IOfflineScreen {
+	/**
+	 * Custom fonts name.\
+	 * Default value: **custom**
+	 * */
+	fontName?: string;
+
+	/**
+	 * The message to show the user.\
+	 * Default value: **Вы не подключены к Интернету.**
+	 * */
+	message?: string;
+
+	/** All options for the refresh button. */
+	refreshButton?: {
+		/**
+		 * Custom refresh button text.\
+		 * Default value: **Обновить**
+		 */
+		text?: string;
+
+		/**
+		 * Custom button text color.\
+		 * Default value: **##ffffff**
+		 */
+		textColor?: string;
+
+		/**
+		 * Custom refresh button background color.\
+		 * Default value: **#583d72**
+		 */
+		backgroundColor?: string;
+	};
+
+}
+
 export interface IAppProps<T = any> {
 	/** Website url */
 	siteUrl: string;
@@ -20,32 +57,11 @@ export interface IAppProps<T = any> {
 	 * */
 	paymentPattern?: string | RegExp;
 
-	/**
-	 * Custom fonts name.\
-	 * Default value: **custom**
-	 * */
-	fontName?: string;
+	/** Custom options for the offline screen */
+	offlineScreenOptions?: IOfflineScreen;
 
-	/**
-	 * Theme color.\
-	 * Default value: **#583d72**
-	 */
-	themeColor?: string;
-
-	/**
-	 * Custom text to show when the user is offline.\
-	 * **Default:**
-	 * ```json
-	 * {
-	 *		"message": "Вы не подключены к Интернету.",
-	 *		"refreshButton": "Обновить",
-	 * }
-	 * ```
-	 */
-	offlineText?: {
-		message?: string;
-		refreshButton?: string;
-	}
+	/** Custom component for the offline screen */
+	offlineScreenComponent?: React.ComponentType;
 
 	/** Custom injected javascript when the site is loading */
 	customJSInjection?: string;
